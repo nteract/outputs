@@ -1,0 +1,41 @@
+{
+  "name": "@nteract/jupyter-widgets",
+  "version": "4.4.11-alpha.0",
+  "description": "Transform for rendering Jupyter-JS-Widgets in output areas.",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "nteractDesktop": "src/index.ts",
+  "scripts": {
+    "test": "jest ."
+  },
+  "repository": "https://github.com/nteract/nteract/tree/master/packages/transforms",
+  "keywords": [
+    "nteract",
+    "transforms",
+    "notebook"
+  ],
+  "author": "Jonathan Frederic <jfrederic@google.com>",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/nteract/nteract/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "react": "^16.3.2",
+    "react-redux": "^6.0.0"
+  },
+  "dependencies": {
+    "@jupyter-widgets/controls": "^1.5.2",
+    "@nteract/core": "^13.0.0",
+    "@nteract/messaging": "^7.0.0",
+    "font-awesome": "^4.7.0",
+    "immutable": "^4.0.0-rc.12",
+    "jquery": "^3.4.1",
+    "jquery-ui": "^1.12.1"
+  },
+  "devDependencies": {
+    "@nteract/commutable": "^7.2.6"
+  }
+}

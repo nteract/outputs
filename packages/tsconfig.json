@@ -1,0 +1,26 @@
+{
+  "files": [],
+  "references": [
+    {
+      "path": "jupyter-widgets"
+    },
+    {
+      "path": "outputs"
+    },
+    {
+      "path": "transform-geojson"
+    },
+    {
+      "path": "transform-model-debug"
+    },
+    {
+      "path": "transform-plotly"
+    },
+    {
+      "path": "transform-vdom"
+    },
+    {
+      "path": "transform-vega"
+    }
+  ]
+}

@@ -1,10 +1,12 @@
-# transforms
+# @nteract/outputs
 
-This monorepo contains a collection of nteract transforms. Transforms are React components that take Jupyter display objects as inputs and render rich views as outputs.
+This package contains components for rendering different responses from a Jupyter kernel. These components provide support for rendering plain data and rich media (such as images and HTML) data.
 
 ## Installation
 
-To use the basic set of transforms, you can use the `@nteract/outputs` package.
+```
+$ yarn add @nteract/outputs
+```
 
 ```
 $ npm install --save @nteract/outputs
@@ -12,7 +14,7 @@ $ npm install --save @nteract/outputs
 
 ## Usage
 
-The example below shows how we can use the `ExecuteResult` component within the `@nteract/outputs` package to render the response to an execution request sent by our Jupyter kernel.
+The example below shows how we can use the `ExecuteResult` component within this package to render the response to an execution request sent by our Jupyter kernel.
 
 ```javascript
 import { ExecuteResult } from "@nteract/outputs";
@@ -31,11 +33,9 @@ export default () => {
 };
 ```
 
-Usage instructions for other transforms are documented within each transform's README.
-
 ## Documentation
 
-Transforms are documented in the [docs](./docs) directory.
+You can view the reference documentation for `@nteract/outputs` in the [component docs](https://components.nteract.io/#nteractoutputs).
 
 ## Support
 
