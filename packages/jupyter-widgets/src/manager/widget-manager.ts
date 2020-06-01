@@ -5,14 +5,14 @@ import * as pWidget from "@phosphor/widgets";
 import {
   DOMWidgetView,
   WidgetModel,
-  DOMWidgetModel
+  DOMWidgetModel,
 } from "@jupyter-widgets/base";
 import { WidgetComm } from "./widget-comms";
 import { RecordOf } from "immutable";
 import {
   KernelNotStartedProps,
   LocalKernelProps,
-  RemoteKernelProps
+  RemoteKernelProps,
 } from "@nteract/core";
 import { JupyterMessage } from "@nteract/messaging";
 import { ManagerActions } from "../manager/index";
@@ -25,6 +25,32 @@ interface IDomWidgetModel extends DOMWidgetModel {
   _view_module: string;
   _view_module_version: string;
 }
+
+/**
+ * This method is originally sourced from the ipywidgets package in
+ * https://github.com/jupyter-widgets/ipywidgets/blob/efa9e8901f8cfd438a906a53d182df4a68fcf393/packages/html-manager/src/libembed-amd.ts.
+ *
+ * @param moduleName  The module name of the ipywidget to load
+ * @param moduleVersion The version of the ipywidget to load
+ */
+const mapModuleNameToCDN = (moduleName: string, moduleVersion: string) => {
+  let packageName = moduleName;
+  let fileName = "index"; // default filename
+  // if a '/' is present, like 'foo/bar', packageName is changed to 'foo', and path to 'bar'
+  // We first find the first '/'
+  let index = moduleName.indexOf("/");
+  if (index != -1 && moduleName[0] == "@") {
+    // if we have a namespace, it's a different story
+    // @foo/bar/baz should translate to @foo/bar and baz
+    // so we find the 2nd '/'
+    index = moduleName.indexOf("/", index + 1);
+  }
+  if (index != -1) {
+    fileName = moduleName.substr(index + 1);
+    packageName = moduleName.substr(0, index);
+  }
+  return `https://unpkg.com/${packageName}/dist/${fileName}`;
+};
 
 /**
  * The WidgetManager extends the ManagerBase class and is required
@@ -68,17 +94,22 @@ export class WidgetManager extends base.ManagerBase<DOMWidgetView> {
    * Load a class and return a promise to the loaded object.
    */
   loadClass(className: string, moduleName: string, moduleVersion: string): any {
-    return new Promise(function(resolve, reject) {
+    return new Promise(function (resolve, reject) {
       if (moduleName === "@jupyter-widgets/controls") {
         resolve(controls);
       } else if (moduleName === "@jupyter-widgets/base") {
         resolve(base);
+      } else if (window && (window as any).requirejs) {
+        debugger;
+        const require = (window as any).requirejs;
+        const moduleCDN = mapModuleNameToCDN(moduleName, moduleVersion);
+        require([`${moduleCDN}`], resolve, reject);
       } else {
         return Promise.reject(
           `Module ${moduleName}@${moduleVersion} not found`
         );
       }
-    }).then(function(module: any) {
+    }).then(function (module: any) {
       if (module[className]) {
         return module[className];
       } else {
@@ -121,7 +152,7 @@ export class WidgetManager extends base.ManagerBase<DOMWidgetView> {
       model_module_version: state._module_version,
       view_name: state._view_name,
       view_module: state._view_module,
-      view_module_version: state._view_module_version
+      view_module_version: state._view_module_version,
     };
     return this.new_widget(modelInfo, state);
   }
@@ -184,17 +215,17 @@ export class WidgetManager extends base.ManagerBase<DOMWidgetView> {
         output: (reply: JupyterMessage) =>
           this.actions.appendOutput({
             ...reply.content,
-            output_type: reply.header.msg_type
+            output_type: reply.header.msg_type,
           }),
         clear_output: (reply: JupyterMessage) => this.actions.clearOutput(),
         status: (reply: JupyterMessage) =>
-          this.actions.updateCellStatus(reply.content.execution_state)
+          this.actions.updateCellStatus(reply.content.execution_state),
       },
       input: (reply: JupyterMessage) =>
         this.actions.promptInputRequest(
           reply.content.prompt,
           reply.content.password
-        )
+        ),
     };
   }
 

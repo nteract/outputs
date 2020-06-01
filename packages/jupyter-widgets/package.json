@@ -23,7 +23,8 @@
     "access": "public"
   },
   "peerDependencies": {
-    "react": "^16.3.2"
+    "react": "^16.3.2",
+    "react-redux": "^6.0.0"
   },
   "dependencies": {
     "@jupyter-widgets/controls": "^1.5.2",
