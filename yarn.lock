@@ -5028,9 +5028,9 @@ lodash.templatesettings@^4.0.0:
     lodash._reinterpolate "^3.0.0"
 
 lodash@^4.15.0, lodash@^4.17.11, lodash@^4.17.13, lodash@^4.17.15, lodash@^4.17.4, lodash@^4.2.1, lodash@^4.3.0:
-  version "4.17.15"
-  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
-  integrity sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==
+  version "4.17.19"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.19.tgz#e48ddedbe30b3321783c5b4301fbd353bc1e4a4b"
+  integrity sha512-JNvd8XER9GQX0v2qJgsaN/mzFCNA5BRe/j8JN9d+tWyGLSodKQHKFicdwNYzWwI3wjRnaKPsGj1XkBjx/F96DQ==
 
 lolex@^5.0.0:
   version "5.1.2"
@@ -5933,10 +5933,10 @@ pkg-up@^3.1.0:
   dependencies:
     find-up "^3.0.0"
 
-plotly.js-dist@^1.51.3:
-  version "1.52.3"
-  resolved "https://registry.yarnpkg.com/plotly.js-dist/-/plotly.js-dist-1.52.3.tgz#4c16c6da6adab6cdba169087b5005bdddbf10834"
-  integrity sha512-kpuNwveRk6M/5cCW1ZgJTbMLD0bRZhJlLK0cUHVkTsP/PWKCVJqO3QiiqrypFGE/xEhWfHCY+YKAKjMmEbo4Gw==
+plotly.js-dist@^1.54.5:
+  version "1.54.6"
+  resolved "https://registry.yarnpkg.com/plotly.js-dist/-/plotly.js-dist-1.54.6.tgz#75828e1dfd91daedba12b4bc0e482421edd31cff"
+  integrity sha512-eOqCTUV3WQXVWWtnU5X2kYRGToUDecBgdekqaqHXXEmE5VFgql437rzpq2oaG+6lmHNj+hmbDY+gk8vV3s3w1Q==
 
 pn@^1.1.0:
   version "1.1.0"
