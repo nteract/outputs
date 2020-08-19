@@ -13,7 +13,7 @@
     "@nteract/markdown": "^4.3.10-alpha.0",
     "@nteract/mathjax": "^4.0.7",
     "ansi-to-react": "^6.0.5",
-    "react-json-tree": "^0.12.0"
+    "react-json-tree": "^0.12.1"
   },
   "note:devDeps": [
     "commutable is a development dependency as we don't want to force consumers of our library to install commutable.",
