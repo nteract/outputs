@@ -10,8 +10,8 @@
     "test": "jest"
   },
   "dependencies": {
-    "@nteract/markdown": "^4.3.10-alpha.0",
-    "@nteract/mathjax": "^4.0.7",
+    "@nteract/markdown": "^4.5.2",
+    "@nteract/mathjax": "^4.0.11",
     "ansi-to-react": "^6.0.5",
     "react-json-tree": "^0.12.1"
   },

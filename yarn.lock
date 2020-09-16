@@ -1136,30 +1136,23 @@
     rx-jupyter "^5.5.2"
     rxjs "^6.3.3"
 
-"@nteract/markdown@^4.3.10-alpha.0":
-  version "4.3.10-alpha.0"
-  resolved "https://registry.yarnpkg.com/@nteract/markdown/-/markdown-4.3.10-alpha.0.tgz#756cc06e0aca0015e984ec7d44e9cf19c24ff7ad"
-  integrity sha512-HXimVRO4PrvmHS+ionGvtRslk/+eHPgUUNo2rJqH6eTMhLJRoJixNJdi37KOQLA0KEGz39EvfL19BmapuCpW/A==
+"@nteract/markdown@^4.5.2":
+  version "4.5.2"
+  resolved "https://registry.yarnpkg.com/@nteract/markdown/-/markdown-4.5.2.tgz#a1eaa58961a26219a1e1f7beaef42d41ef06e864"
+  integrity sha512-qf7kbNzYohwj0dKI0qDY8dOv4kubj6lN3KcM5Xaev433q+4iTSKIgtD6ffCC4Jryq3AqN957V1YsY9ZwBZ1GUQ==
   dependencies:
-    "@nteract/mathjax" "^4.0.8-alpha.0"
-    "@nteract/presentational-components" "^3.3.10-alpha.0"
+    "@nteract/mathjax" "^4.0.11"
+    "@nteract/presentational-components" "^3.3.11"
     react-markdown "^4.0.0"
 
-"@nteract/mathjax@^4.0.7":
-  version "4.0.7"
-  resolved "https://registry.yarnpkg.com/@nteract/mathjax/-/mathjax-4.0.7.tgz#9aef85b04e12eda7d6c2506fbc676c40837ffc11"
-  integrity sha512-FwdZmaGXJ3AY8u68k8ZBXvck3SgOLAjruc0c0nCqdQC/ahK/l1xwPjabE/cqcWCHQtBbzMgZpxLbwGnP8Uszuw==
+"@nteract/mathjax@^4.0.11":
+  version "4.0.11"
+  resolved "https://registry.yarnpkg.com/@nteract/mathjax/-/mathjax-4.0.11.tgz#48c66fa0d26bd9caa54d231e2562bf690aeba785"
+  integrity sha512-W+MIjPAA/CFaXJIubSod/ANK6iNpRR21mGFh0Z7Dde7fHLEM2gwCjqdzbxjvCMl82zRMGFPNuZ1bMyX4JArO2g==
   dependencies:
     load-script "^1.0.0"
     react "^16.13.0"
     react-dom "^16.13.0"
-
-"@nteract/mathjax@^4.0.8-alpha.0":
-  version "4.0.8-alpha.0"
-  resolved "https://registry.yarnpkg.com/@nteract/mathjax/-/mathjax-4.0.8-alpha.0.tgz#369d5d57a6c42bf0c88f9fd02083093a5b0c0251"
-  integrity sha512-P6G38Tiq3bIGDuuRipkiyQiKfKhyuRm7Lybxx9A2I+UQ5Z8vIV2Y1UU5rlHdXvFhpQYARCT3DMT5Rysw6aQILw==
-  dependencies:
-    load-script "^1.0.0"
 
 "@nteract/messaging@^7.0.0":
   version "7.0.0"
@@ -1190,14 +1183,17 @@
     redux-observable "^1.0.0"
     rxjs "^6.3.3"
 
-"@nteract/presentational-components@^3.3.10-alpha.0":
-  version "3.3.10-alpha.0"
-  resolved "https://registry.yarnpkg.com/@nteract/presentational-components/-/presentational-components-3.3.10-alpha.0.tgz#8fd38f7162c242b1cfffa755d552e858daa61e18"
-  integrity sha512-5NvvvXNHY+sCty+3rGGGS30W5S25su5YeQ0J3jVegaaxJStU+UyPQcAqL/ZetDMzlJrlxVtyRszwDwhD2wq+FA==
+"@nteract/presentational-components@^3.3.11":
+  version "3.4.2"
+  resolved "https://registry.yarnpkg.com/@nteract/presentational-components/-/presentational-components-3.4.2.tgz#989a312d4c4d734ffc2aeb0d08c45c25d5e29f53"
+  integrity sha512-CqU6p7efsXBb1V7CE8gzaOQTG36sefkf/AXwxMIhSt2XGohLBcfONuVDxnVwMKXIfxX5u4zjEH2pBGHyXlEGgw==
   dependencies:
     "@blueprintjs/core" "^3.7.0"
     "@blueprintjs/select" "^3.2.0"
+    classnames "^2.2.6"
+    re-resizable "^6.5.0"
     react-syntax-highlighter "^12.0.0"
+    react-toggle "^4.1.1"
 
 "@nteract/presentational-components@^3.3.7":
   version "3.3.7"
@@ -2215,7 +2211,7 @@ class-utils@^0.3.5:
     isobject "^3.0.0"
     static-extend "^0.1.1"
 
-classnames@^2.2:
+classnames@^2.2, classnames@^2.2.5, classnames@^2.2.6:
   version "2.2.6"
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.6.tgz#43935bffdd291f326dad0a205309b38d00f650ce"
   integrity sha512-JR/iSQOSt+LQIWwrwEzJ9uk0xfN3mTVYMwt1Ir5mUcSN6pU+V4zQFFaJsclJbPuAUQH+yfWef6tm7l1quW3C8Q==
@@ -3309,6 +3305,11 @@ fast-levenshtein@~2.0.6:
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/fast-levenshtein/-/fast-levenshtein-2.0.6.tgz#3d8a5c66883a16a30ca8643e851f19baa7797917"
   integrity sha1-PYpcZog6FqMMqGQ+hR8Zuqd5eRc=
+
+fast-memoize@^2.5.1:
+  version "2.5.2"
+  resolved "https://registry.yarnpkg.com/fast-memoize/-/fast-memoize-2.5.2.tgz#79e3bb6a4ec867ea40ba0e7146816f6cdce9b57e"
+  integrity sha512-Ue0LwpDYErFbmNnZSF0UH6eImUwDmogUO1jyE+JbN2gsQz/jICm1Ve7t9QT0rNSsfJt+Hs4/S3GnsDVjL4HVrw==
 
 fault@^1.0.2:
   version "1.0.4"
@@ -6105,6 +6106,13 @@ rc@^1.0.1, rc@^1.1.6, rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
+re-resizable@^6.5.0:
+  version "6.5.5"
+  resolved "https://registry.yarnpkg.com/re-resizable/-/re-resizable-6.5.5.tgz#f26ac5f6b6d1474fac62ee07e6b41a74df6c0e12"
+  integrity sha512-z7Vl5PStOxSDlpeLz73+hIKBC3raoy00KYNVGz1G4C01Q1goog6061lbXhWQsjS16DV59IPA2snjvZYPkxc2Vw==
+  dependencies:
+    fast-memoize "^2.5.1"
+
 react-base16-styling@^0.7.0:
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/react-base16-styling/-/react-base16-styling-0.7.0.tgz#0c9653e14f1f08dc81ad066cd31e9cfec89c80ea"
@@ -6202,6 +6210,13 @@ react-test-renderer@^16.0.0-0, react-test-renderer@^16.13.0:
     prop-types "^15.6.2"
     react-is "^16.8.6"
     scheduler "^0.19.1"
+
+react-toggle@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/react-toggle/-/react-toggle-4.1.1.tgz#2317f67bf918ea3508a96b09dd383efd9da572af"
+  integrity sha512-+wXlMcSpg8SmnIXauMaZiKpR+r2wp2gMUteroejp2UTSqGTVvZLN+m9EhMzFARBKEw7KpQOwzCyfzeHeAndQGw==
+  dependencies:
+    classnames "^2.2.5"
 
 react-transition-group@^2.9.0:
   version "2.9.0"
