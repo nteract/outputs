@@ -16,6 +16,7 @@ import {
 } from "@nteract/core";
 import { JupyterMessage } from "@nteract/messaging";
 import { ManagerActions } from "../manager/index";
+import { initRequireDeps, requireLoader } from "./widgetLoader";
 
 interface IDomWidgetModel extends DOMWidgetModel {
   _model_name: string;
@@ -52,6 +53,7 @@ export class WidgetManager extends base.ManagerBase<DOMWidgetView> {
     this.stateModelById = stateModelById;
     this.actions = actions;
     this.widgetsBeingCreated = {};
+    initRequireDeps();
   }
 
   update(
@@ -74,9 +76,7 @@ export class WidgetManager extends base.ManagerBase<DOMWidgetView> {
       } else if (moduleName === "@jupyter-widgets/base") {
         resolve(base);
       } else {
-        return Promise.reject(
-          `Module ${moduleName}@${moduleVersion} not found`
-        );
+        requireLoader(moduleName, moduleVersion, resolve, reject);
       }
     }).then(function(module: any) {
       if (module[className]) {

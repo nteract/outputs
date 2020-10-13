@@ -1,13 +1,40 @@
 import { IntSliderView } from "@jupyter-widgets/controls";
 import { Map } from "immutable";
 
+import { ManagerActions } from "../../src/manager/index";
 import { WidgetManager } from "../../src/manager/widget-manager";
+import * as customWidgetLoader from "../../src/manager/widgetLoader";
+
+// A mock valid module representing a custom widget
+const mockFooModule = {
+  "foo" : "bar"
+};
+// Mock implementation of the core require API
+const mockRequireJS = jest.fn((modules, ready, errCB) => ready(mockFooModule));
+(window as any).requirejs = mockRequireJS;
+(window as any).requirejs.config  = jest.fn();
+
+// Manager actions passed as the third arg when instantiating the WidgetManager class
+const mockManagerActions: ManagerActions["actions"] = {
+  appendOutput: jest.fn(),
+  clearOutput: jest.fn(),
+  updateCellStatus: jest.fn(),
+  promptInputRequest: jest.fn()
+};
+
 
 describe("WidgetManager", () => {
   describe("loadClass", () => {
+    beforeAll(() => {
+      jest.clearAllMocks();
+    });
+    afterEach(() => {
+      jest.clearAllMocks();
+    });
+
     it("returns a class if it exists", () => {
       const modelById = (id: string) => undefined;
-      const manager = new WidgetManager(null, modelById);
+      const manager = new WidgetManager(null, modelById, mockManagerActions);
       const view = manager.loadClass(
         "IntSliderView",
         "@jupyter-widgets/controls",
@@ -15,11 +42,49 @@ describe("WidgetManager", () => {
       );
       expect(view).not.toBe(null);
     });
+
+    it("Returns a valid module class successfully from CDN for custom widgets", () => {
+      const modelById = (id: string) => undefined;
+      const manager = new WidgetManager(null, modelById, mockManagerActions);
+      const requireLoaderSpy = jest.spyOn(customWidgetLoader, "requireLoader");
+
+      return manager.loadClass(
+        "foo",
+        "fooModule",
+        "1.1.0"
+      ).then(view => {
+        expect(requireLoaderSpy).toHaveBeenCalledTimes(1);
+        // Get the second arg to Monaco.editor.create call
+        const mockLoaderArgs = requireLoaderSpy.mock.calls[0];
+        expect(mockLoaderArgs).not.toBe(null);
+        expect(mockLoaderArgs.length).toBe(4);
+        expect(mockLoaderArgs[0]).toBe("fooModule");
+        expect(mockLoaderArgs[1]).toBe("1.1.0");
+        expect(view).not.toBe(null);
+        expect(view).toBe(mockFooModule["foo"]);
+      });
+    });
+
+    it("Returns an error if the class does not exist on the module", () => {
+      const modelById = (id: string) => undefined;
+      const manager = new WidgetManager(null, modelById, mockManagerActions);
+      const requireLoaderSpy = jest.spyOn(customWidgetLoader, "requireLoader");
+
+      return manager.loadClass(
+        "INVALID_CLASS",
+        "fooModule",
+        "1.1.0"
+      ).catch(error => {
+        expect(requireLoaderSpy).toHaveBeenCalledTimes(1);
+        expect(error).toBe("Class INVALID_CLASS not found in module fooModule@1.1.0");
+      });
+    });
   });
+
   describe("create_view", () => {
     it("returns a widget mounted on the provided element", async () => {
       const modelById = (id: string) => undefined;
-      const manager = new WidgetManager(null, modelById);
+      const manager = new WidgetManager(null, modelById, mockManagerActions);
       const model = {
         _dom_classes: [],
         _model_module: "@jupyter-widgets/controls",
@@ -99,7 +164,7 @@ describe("WidgetManager", () => {
         const model = id === "layout_id" ? layoutModel : styleModel;
         return Promise.resolve(Map({ state: Map(model) }));
       };
-      const manager = new WidgetManager(null, modelById);
+      const manager = new WidgetManager(null, modelById, mockManagerActions);
       const widget = await manager.new_widget_from_state_and_id(
         model,
         "test_model_id"
@@ -120,10 +185,10 @@ describe("WidgetManager", () => {
   });
   it("can update class properties via method", () => {
     const modelById = (id: string) => undefined;
-    const manager = new WidgetManager(null, modelById);
+    const manager = new WidgetManager(null, modelById, mockManagerActions);
     expect(manager.kernel).toBeNull();
     const newKernel = { channels: { next: jest.fn() } };
-    manager.update(newKernel, modelById, {});
+    manager.update(newKernel, modelById, mockManagerActions);
     expect(manager.kernel).toBe(newKernel);
   });
 });
