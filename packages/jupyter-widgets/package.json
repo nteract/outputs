@@ -36,6 +36,6 @@
     "react-redux": "^6.0.0"
   },
   "devDependencies": {
-    "@nteract/commutable": "^7.2.6"
+    "@nteract/commutable": "7.2.6"
   }
 }
