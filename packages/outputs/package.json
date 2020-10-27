@@ -20,7 +20,7 @@
     "we only use it for type checking within the monorepo"
   ],
   "devDependencies": {
-    "@nteract/commutable": "7.2.8-alpha.0",
+    "@nteract/commutable": "7.3.4",
     "@types/react-json-tree": "0.6.11",
     "@types/react-test-renderer": "16.9.2",
     "@types/styled-components": "5.0.1",

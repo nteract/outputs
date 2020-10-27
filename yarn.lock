@@ -1090,21 +1090,21 @@
   resolved "https://registry.yarnpkg.com/@nteract/any-vega/-/any-vega-1.0.1.tgz#d790774bdc453bc5af663455747637a2100f634a"
   integrity sha512-RjECjm2bdQpEHuhpWyIjAg8dA8t5iWGDmx2VuStBhVSffciNrCn0WxhJiK5TSkyuBgk4rB4eAOspJ8UnfjOAyA==
 
-"@nteract/commutable@7.2.6", "@nteract/commutable@^7.2.6":
+"@nteract/commutable@7.3.4":
+  version "7.3.4"
+  resolved "https://registry.yarnpkg.com/@nteract/commutable/-/commutable-7.3.4.tgz#221d52a1d798442125d67871bc4f2f8583619c4d"
+  integrity sha512-Z6aUtIZN0CKUMJwbZjUUqaaBhT6P0RiEG5nHso+oG/FOXF20Qv+hf/TyvYhw9SXQVmmacaMk4zj0iOID20pIng==
+  dependencies:
+    immutable "^4.0.0-rc.12"
+    uuid "^8.0.0"
+
+"@nteract/commutable@^7.2.6":
   version "7.2.6"
   resolved "https://registry.yarnpkg.com/@nteract/commutable/-/commutable-7.2.6.tgz#632d43c5d8d87d56771d387d0a46f8769492500f"
   integrity sha512-pn2TVhnkrGumytmsmrKLhcKns1jBPdoeKnaihnSx1oaV55iUpfcWER9jgq/k7tcPronQy/dunJQid+s/Ch8mMQ==
   dependencies:
     immutable "^4.0.0-rc.12"
     uuid "^3.1.0"
-
-"@nteract/commutable@7.2.8-alpha.0":
-  version "7.2.8-alpha.0"
-  resolved "https://registry.yarnpkg.com/@nteract/commutable/-/commutable-7.2.8-alpha.0.tgz#ced7fd99725907c40c8d8f81c2b48635d2e0a557"
-  integrity sha512-1SK+vneLgz1adPKHIT+DlG6ky12hUYIkU6EkwOywTUHr/VjDl27Cs4S3e7yuv8TwrRlzYS+ClOZ5Bh+7F3f3Ng==
-  dependencies:
-    immutable "^4.0.0-rc.12"
-    uuid "^7.0.0"
 
 "@nteract/core@^13.0.0":
   version "13.0.0"
@@ -7706,10 +7706,10 @@ uuid@^3.0.1, uuid@^3.1.0, uuid@^3.3.2:
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.4.0.tgz#b23e4358afa8a202fe7a100af1f5f883f02007ee"
   integrity sha512-HjSDRw6gZE5JMggctHBcjVak08+KEVhSIiDzFnT9S9aegmp85S/bReBVTb4QTFaRNptJ9kuYaNhnbNEOkbKb/A==
 
-uuid@^7.0.0:
-  version "7.0.2"
-  resolved "https://registry.yarnpkg.com/uuid/-/uuid-7.0.2.tgz#7ff5c203467e91f5e0d85cfcbaaf7d2ebbca9be6"
-  integrity sha512-vy9V/+pKG+5ZTYKf+VcphF5Oc6EFiu3W8Nv3P3zIh0EqVI80ZxOzuPfe9EHjkFNvf8+xuTHVeei4Drydlx4zjw==
+uuid@^8.0.0:
+  version "8.3.1"
+  resolved "https://registry.yarnpkg.com/uuid/-/uuid-8.3.1.tgz#2ba2e6ca000da60fce5a196954ab241131e05a31"
+  integrity sha512-FOmRr+FmWEIG8uhZv6C2bTgEVXsHk08kE7mPlrBbEe+c3r9pjceVPgupIfNIhc4yx55H69OXANrUaSuu9eInKg==
 
 v8-to-istanbul@^4.0.1:
   version "4.1.3"
