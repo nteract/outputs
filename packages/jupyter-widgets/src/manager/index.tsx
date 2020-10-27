@@ -48,7 +48,7 @@ type Props = ConnectedProps & OwnProps & ManagerActions;
  * respect to bridging the kernels comms that the WidgetManager provides,
  * our client-side state model, and the view.
  */
-class Manager extends React.Component<Props> {
+export class Manager extends React.Component<Props> {
   widgetContainerRef = React.createRef<HTMLDivElement>();
   static manager: WidgetManager;
 
