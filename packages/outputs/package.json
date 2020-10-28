@@ -22,7 +22,7 @@
   "devDependencies": {
     "@nteract/commutable": "7.3.4",
     "@types/react-json-tree": "0.6.11",
-    "@types/react-test-renderer": "16.9.2",
+    "@types/react-test-renderer": "16.9.3",
     "@types/styled-components": "5.0.1",
     "react-test-renderer": "16.13.1",
     "styled-components": "4.4.1"
