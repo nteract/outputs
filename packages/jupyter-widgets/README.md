@@ -14,6 +14,8 @@ $ yarn add @nteract/jupyter-widgets
 $ npm install --save @nteract/jupyter-widgets
 ```
 
+Note: The connected (to Redux) components in this package depend on some of the APIs provided in the `@nteract/core` package. This package depends on a certain version of `@nteract/core` but you can target a particular version by modifying your lock file.
+
 ## Usage
 
 ```javascript
