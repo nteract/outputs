@@ -1372,23 +1372,23 @@
     node-fetch "^2.6.0"
     ws "^7.0.0"
 
-"@nteract/actions@^4.0.0":
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/@nteract/actions/-/actions-4.0.0.tgz#e3860843aaa15a588065ddf03262f2ff78ecd996"
-  integrity sha512-pNwC53ZIP5b8LWKdrWm+b6mEDGesXnRG+88RF33h3H7aXSMzquX2l++uPRZulN/6ow3sG5QBz8CAmTayAakj7w==
+"@nteract/actions@^7.0.4":
+  version "7.0.4"
+  resolved "https://registry.yarnpkg.com/@nteract/actions/-/actions-7.0.4.tgz#d7c0d6454788e484fd07fb72da0fac007d5cc931"
+  integrity sha512-FHXkehBwiHOdWj0hGgXVTTnoRIeMLZkyi68t2fawBpXCKLIdiJ/Eaevb72fQwCc1vMEsppZiuMoXp9twSJvTag==
   dependencies:
-    "@nteract/commutable" "^7.2.6"
-    "@nteract/messaging" "^7.0.0"
-    "@nteract/types" "^6.0.0"
+    "@nteract/commutable" "^7.3.4"
+    "@nteract/messaging" "^7.0.12"
+    "@nteract/types" "^7.1.2"
     immutable "^4.0.0-rc.12"
-    rx-jupyter "^5.5.2"
+    rx-jupyter "^5.5.14"
 
 "@nteract/any-vega@^1.0.1":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@nteract/any-vega/-/any-vega-1.0.1.tgz#d790774bdc453bc5af663455747637a2100f634a"
   integrity sha512-RjECjm2bdQpEHuhpWyIjAg8dA8t5iWGDmx2VuStBhVSffciNrCn0WxhJiK5TSkyuBgk4rB4eAOspJ8UnfjOAyA==
 
-"@nteract/commutable@7.3.4":
+"@nteract/commutable@7.3.4", "@nteract/commutable@^7.3.4":
   version "7.3.4"
   resolved "https://registry.yarnpkg.com/@nteract/commutable/-/commutable-7.3.4.tgz#221d52a1d798442125d67871bc4f2f8583619c4d"
   integrity sha512-Z6aUtIZN0CKUMJwbZjUUqaaBhT6P0RiEG5nHso+oG/FOXF20Qv+hf/TyvYhw9SXQVmmacaMk4zj0iOID20pIng==
@@ -1404,34 +1404,35 @@
     immutable "^4.0.0-rc.12"
     uuid "^3.1.0"
 
-"@nteract/core@^13.0.0":
-  version "13.0.0"
-  resolved "https://registry.yarnpkg.com/@nteract/core/-/core-13.0.0.tgz#2ef8a0e76b2bcf6194000e648902cc98fbb041dd"
-  integrity sha512-JqvuO4NAoX1cux2LkVexGPbdGMKqjxmt3Jmt0aj+LqFkmffedrxk9m+VLKieBz2B/qUu4h4dKdHiQ8CRT8p35A==
+"@nteract/core@^15.0.0":
+  version "15.1.2"
+  resolved "https://registry.yarnpkg.com/@nteract/core/-/core-15.1.2.tgz#f72a5b8b593efb3176fcdadc9a6885e2f0a8b93e"
+  integrity sha512-Rv+OEeqd1/DO2e8bxG5V+3UdfgiYUbmwxIYbYW7rSR0jGYCe3/aVeopYdqEBNAId55DkoqaM1wL9RjPE429EPw==
   dependencies:
-    "@nteract/actions" "^4.0.0"
-    "@nteract/commutable" "^7.2.6"
-    "@nteract/epics" "^4.0.2"
-    "@nteract/reducers" "^3.1.0"
-    "@nteract/selectors" "^2.8.3"
-    "@nteract/types" "^6.0.0"
+    "@nteract/actions" "^7.0.4"
+    "@nteract/commutable" "^7.3.4"
+    "@nteract/epics" "^5.0.4"
+    "@nteract/reducers" "^5.1.2"
+    "@nteract/selectors" "^3.1.2"
+    "@nteract/types" "^7.1.2"
     redux-logger "^3.0.6"
 
-"@nteract/epics@^4.0.2":
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/@nteract/epics/-/epics-4.0.2.tgz#b881735d0a6da2bf490d1d8baa03104c0a26c2f3"
-  integrity sha512-vLGkBk3GvcQkMVDtc+uXrJ413M81m3RZmSyjLqktGelA0t88VYBGVn7oZlX2s9gTRnN9gihCGAbCy3uqjqx6Qw==
+"@nteract/epics@^5.0.4":
+  version "5.0.4"
+  resolved "https://registry.yarnpkg.com/@nteract/epics/-/epics-5.0.4.tgz#3e48b5b9700a2cd011a128571f122e1f54f78a5a"
+  integrity sha512-nqukC3x9AMBqIFVWMkAE+xT11xLDP6tdy58X9kM1egnxtI3UG595Yixw8FjVqSxqOiE5fcJNk7Xs9aKut6bGXQ==
   dependencies:
-    "@nteract/actions" "^4.0.0"
-    "@nteract/commutable" "^7.2.6"
-    "@nteract/messaging" "^7.0.0"
-    "@nteract/mythic-notifications" "^0.1.2-alpha.0"
-    "@nteract/selectors" "^2.8.3"
-    "@nteract/types" "^6.0.0"
+    "@nteract/actions" "^7.0.4"
+    "@nteract/commutable" "^7.3.4"
+    "@nteract/messaging" "^7.0.12"
+    "@nteract/mythic-configuration" "^1.0.4"
+    "@nteract/mythic-notifications" "^0.2.4"
+    "@nteract/selectors" "^3.1.2"
+    "@nteract/types" "^7.1.2"
     file-saver "^2.0.0"
     redux "^4.0.1"
-    redux-observable "^1.0.0"
-    rx-jupyter "^5.5.2"
+    redux-observable "^2.0.0-alpha.0"
+    rx-jupyter "^5.5.14"
     rxjs "^6.3.3"
 
 "@nteract/markdown@^4.5.2":
@@ -1463,22 +1464,41 @@
     rxjs "^6.3.3"
     uuid "^3.1.0"
 
-"@nteract/mythic-notifications@^0.1.2-alpha.0":
-  version "0.1.2-alpha.0"
-  resolved "https://registry.yarnpkg.com/@nteract/mythic-notifications/-/mythic-notifications-0.1.2-alpha.0.tgz#4cde8fa6aacc1d6cf0633d7f37d67df357f09c20"
-  integrity sha512-OEns20I9uXDbwj1IuwwmdT8OYSLMngZrQ4U0+17EAUF/9pWMUCdGAgWyczTfGayyeYwqqBSoHNPppllBXRln+A==
+"@nteract/messaging@^7.0.12":
+  version "7.0.12"
+  resolved "https://registry.yarnpkg.com/@nteract/messaging/-/messaging-7.0.12.tgz#56949b182cc90e6368b40c83c363dfea0731d6ae"
+  integrity sha512-5z2Ffd1hj7AsGBJTAoqJshLlUZ+ISJBjiZAdNDjb70PNEv0x8UOMk/di80RI3WBLK5MKxSJkGXfs4jfzfdW6bA==
+  dependencies:
+    "@nteract/types" "^7.1.2"
+    "@types/uuid" "^8.0.0"
+    lodash.clonedeep "^4.5.0"
+    rxjs "^6.6.0"
+    uuid "^8.0.0"
+
+"@nteract/mythic-configuration@^1.0.4":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@nteract/mythic-configuration/-/mythic-configuration-1.0.4.tgz#80f5a55621a7872c3245e2c03b9e63bbdc1907db"
+  integrity sha512-Rzw8grmHJb+ha+c3Dw4ud0sYOrTXDAxcEzyxEF9zJ8qISIBZ6ApJenPgNggpZm85w+xGO4E/1xKeVx/TcsTXGA==
+  dependencies:
+    "@nteract/myths" "^0.2.4"
+    fs-observable "^4.1.14"
+
+"@nteract/mythic-notifications@^0.2.4":
+  version "0.2.4"
+  resolved "https://registry.yarnpkg.com/@nteract/mythic-notifications/-/mythic-notifications-0.2.4.tgz#5469b66b6c730907d56af4d5a2f7487ee4054dc6"
+  integrity sha512-xcxNOuAfaoMFiQlD011D8EJAXbcoNIVQ4AE+b1NVnaRMl782NA5mYjAkUfgg1MS3Df1MiXz5z+4dtYXNiPJqDA==
   dependencies:
     "@blueprintjs/core" "^3.7.0"
-    "@nteract/myths" "^0.1.2-alpha.0"
+    "@nteract/myths" "^0.2.4"
 
-"@nteract/myths@^0.1.2-alpha.0":
-  version "0.1.2-alpha.0"
-  resolved "https://registry.yarnpkg.com/@nteract/myths/-/myths-0.1.2-alpha.0.tgz#2e83e7336c338c7509ce8162c2fb841b5224bd68"
-  integrity sha512-vH2hlOvv4NRjpfdDWQI7HaL+LthjBrFJtLFmf7/hwAURQaLvWPU0/4YsmdLmwPX9eDXTlwXzZjBopu0Sm/fH9Q==
+"@nteract/myths@^0.2.4":
+  version "0.2.4"
+  resolved "https://registry.yarnpkg.com/@nteract/myths/-/myths-0.2.4.tgz#99dac32db40fd280677cfcd0c0e0b430bfad62cf"
+  integrity sha512-H/CednSVlUlVU5le2AY5qQ6DQnvpPYZX3ZGd4sBATIJpPRG+BLkWmndZO/+67kZXCDSlopn4L5K/ta0if8o6PA==
   dependencies:
     react-redux "^6.0.0"
     redux "^4.0.0"
-    redux-observable "^1.0.0"
+    redux-observable "^2.0.0-alpha.0"
     rxjs "^6.3.3"
 
 "@nteract/presentational-components@^3.3.11":
@@ -1502,31 +1522,31 @@
     "@blueprintjs/select" "^3.2.0"
     react-syntax-highlighter "^12.0.0"
 
-"@nteract/reducers@^3.1.0":
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/@nteract/reducers/-/reducers-3.1.0.tgz#78438ec026537a8b1fbf8b6157d3b1114d2302e9"
-  integrity sha512-yFDD3m/dh8hrXxq7MWMkKKmaV6su2hql0nASTNonP806o7IgE2W7x6tZIlN6Y0y9TysKf7roS6gdv6369/K3Tw==
+"@nteract/reducers@^5.1.2":
+  version "5.1.2"
+  resolved "https://registry.yarnpkg.com/@nteract/reducers/-/reducers-5.1.2.tgz#4dd7092886d187886e3b36b47fffcee7e67a36b3"
+  integrity sha512-RdNN2MqxYtE7gBC26Dw13DCFDaAMwVRudSsIpqB+jwxnFm+cz4v4p7LY4Lx2yprPbVAYIuRGIyRa7kW9sX7Vog==
   dependencies:
-    "@nteract/actions" "^4.0.0"
-    "@nteract/commutable" "^7.2.6"
-    "@nteract/types" "^6.0.0"
+    "@nteract/actions" "^7.0.4"
+    "@nteract/commutable" "^7.3.4"
+    "@nteract/types" "^7.1.2"
     escape-carriage "^1.3.0"
     immutable "^4.0.0-rc.12"
     lodash.has "^4.5.2"
     redux "^4.0.1"
     redux-immutable "^4.0.0"
-    uuid "^3.3.2"
+    uuid "^8.0.0"
 
-"@nteract/selectors@^2.8.3":
-  version "2.8.3"
-  resolved "https://registry.yarnpkg.com/@nteract/selectors/-/selectors-2.8.3.tgz#122b6dfd0f6bf5688ae76e73d8ba966dd1bd8d03"
-  integrity sha512-RkGCSOqPP8OQ5CHydCL0WOIaxVDTyvPKSVPmdBZCA/Y/Q4b+KWkA+aVNVr+k5zCg+nzhCIXpG019rcVQ2UY+vw==
+"@nteract/selectors@^3.1.2":
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/@nteract/selectors/-/selectors-3.1.2.tgz#bc86437dd19e3a92c003e4f3c921c004d555edff"
+  integrity sha512-ZV8gYlR0p13CQtTSQ9kghgHyHSJ3RVp7okguHczI4/5XQlA+SO5B3TxQWbHklC+npTGgXCSLLdjWctw4iOIwKQ==
   dependencies:
-    "@nteract/commutable" "^7.2.6"
-    "@nteract/types" "^6.0.0"
+    "@nteract/commutable" "^7.3.4"
+    "@nteract/types" "^7.1.2"
     immutable "^4.0.0-rc.12"
     reselect "^4.0.0"
-    rx-jupyter "^5.5.2"
+    rx-jupyter "^5.5.14"
 
 "@nteract/types@^6.0.0":
   version "6.0.0"
@@ -1537,6 +1557,16 @@
     immutable "^4.0.0-rc.12"
     rxjs "^6.3.3"
     uuid "^3.1.0"
+
+"@nteract/types@^7.1.2":
+  version "7.1.2"
+  resolved "https://registry.yarnpkg.com/@nteract/types/-/types-7.1.2.tgz#f278704e8f55d328bfb3c8b8b1cbd9c6bd19d320"
+  integrity sha512-I/1TvaUC/m9I/LFk1HemsOUqB0eNdagu0KRLA1YEtChPh9pk5F9flglA7m5+0/j31gLXBISj5+6tL8ikA8BxOQ==
+  dependencies:
+    "@nteract/commutable" "^7.3.4"
+    immutable "^4.0.0-rc.12"
+    rxjs "^6.6.0"
+    uuid "^8.0.0"
 
 "@phosphor/algorithm@^1.1.0", "@phosphor/algorithm@^1.2.0":
   version "1.2.0"
@@ -1895,6 +1925,11 @@
   resolved "https://registry.yarnpkg.com/@types/uuid/-/uuid-3.4.8.tgz#4ba887fcef88bd9a7515ca2de336d691e3e18318"
   integrity sha512-zHWce3allXWSmRx6/AGXKCtSOA7JjeWd2L3t4aHfysNk8mouQnWCocveaT7a4IEIlPVHp81jzlnknqTgCjCLXA==
 
+"@types/uuid@^8.0.0":
+  version "8.3.0"
+  resolved "https://registry.yarnpkg.com/@types/uuid/-/uuid-8.3.0.tgz#215c231dff736d5ba92410e6d602050cce7e273f"
+  integrity sha512-eQ9qFW/fhfGJF8WKHGEHZEyVWfZxrT+6CLIJGBcZPfxUh/+BnEj+UCGYMlr9qZuX/2AltsvwrGqp0LhEW8D0zQ==
+
 "@types/yargs-parser@*":
   version "15.0.0"
   resolved "https://registry.yarnpkg.com/@types/yargs-parser/-/yargs-parser-15.0.0.tgz#cb3f9f741869e20cce330ffbeb9271590483882d"
@@ -1907,10 +1942,10 @@
   dependencies:
     "@types/yargs-parser" "*"
 
-"@ungap/url-search-params@^0.1.2":
-  version "0.1.4"
-  resolved "https://registry.yarnpkg.com/@ungap/url-search-params/-/url-search-params-0.1.4.tgz#727e9b4c811beaa6be6d7e4cc0516663c884cfd0"
-  integrity sha512-RLwrxCTDNiNev9hpr9rDq8NyeQ8Nn0X1we4Wu7Tlf368I8r+7hBj3uObhifhuLk74egaYaSX5nUsBlWz6kjj+A==
+"@ungap/url-search-params@^0.2.0":
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/@ungap/url-search-params/-/url-search-params-0.2.2.tgz#2de3bdec21476a9b70ef11fd7b794752f9afa04c"
+  integrity sha512-qQsguKXZVKdCixOHX9jqnX/K/1HekPDpGKyEcXHT+zR6EjGA7S4boSuelL4uuPv6YfhN0n8c4UxW+v/Z3gM2iw==
 
 JSONStream@^1.0.4:
   version "1.3.5"
@@ -3109,6 +3144,11 @@ dateformat@^3.0.0:
   resolved "https://registry.yarnpkg.com/dateformat/-/dateformat-3.0.3.tgz#a6e37499a4d9a9cf85ef5872044d62901c9889ae"
   integrity sha512-jyCETtSl3VMZMWeRo7iY1FL19ges1t55hMo5yaam4Jrsm5EPL89UQkoQRyiI+Yf4k8r2ZpdngkV8hr1lIdjb3Q==
 
+debounce@^1.0.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/debounce/-/debounce-1.2.0.tgz#44a540abc0ea9943018dc0eaa95cce87f65cd131"
+  integrity sha512-mYtLl1xfZLi1m4RtQYlZgJUNQjl4ZxVnHzIR8nLLgi4q1YT8o/WM+MK/f8yfcc9s5Ir5zRaPZyZU6xs1Syoocg==
+
 debug@^2.2.0, debug@^2.3.3:
   version "2.6.9"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.9.tgz#5d128515df134ff327e90a4c93f4e077a536341f"
@@ -3750,6 +3790,13 @@ file-saver@^2.0.0:
   resolved "https://registry.yarnpkg.com/file-saver/-/file-saver-2.0.2.tgz#06d6e728a9ea2df2cce2f8d9e84dfcdc338ec17a"
   integrity sha512-Wz3c3XQ5xroCxd1G8b7yL0Ehkf0TC9oYC6buPFkNnU9EnaPlifeAFCyCh+iewXTyFRcg0a6j3J7FmJsIhlhBdw==
 
+filewatcher@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/filewatcher/-/filewatcher-3.0.1.tgz#f4a1957355ddaf443ccd78a895f3d55e23c8a034"
+  integrity sha1-9KGVc1Xdr0Q8zXiolfPVXiPIoDQ=
+  dependencies:
+    debounce "^1.0.0"
+
 fill-range@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/fill-range/-/fill-range-4.0.0.tgz#d544811d428f98eb06a63dc402d2403c328c38f7"
@@ -3848,6 +3895,14 @@ fs-minipass@^1.2.5:
   integrity sha512-GWSSJGFy4e9GUeCcbIkED+bgAoFyj7XF1mV8rma3QW4NIqX9Kyx79N/PF61H5udOV3aY1IaMLs6pGbH71nlCTA==
   dependencies:
     minipass "^2.6.0"
+
+fs-observable@^4.1.14:
+  version "4.1.14"
+  resolved "https://registry.yarnpkg.com/fs-observable/-/fs-observable-4.1.14.tgz#8b59a9eedc7952fc93b1188833c34f085c9c653b"
+  integrity sha512-FHOrbGlVpUW61OF6KnJzsE2Q9oARQ9r7CHMuxyPt9GeAmfkScrSZHW9PPOZ3lz13ea/jXHE06j5WCw62HCsB7g==
+  dependencies:
+    filewatcher "^3.0.1"
+    mkdirp "^0.5.1"
 
 fs.realpath@^1.0.0:
   version "1.0.0"
@@ -6863,10 +6918,10 @@ redux-logger@^3.0.6:
   dependencies:
     deep-diff "^0.3.5"
 
-redux-observable@^1.0.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/redux-observable/-/redux-observable-1.2.0.tgz#ff51b6c6be2598e9b5e89fc36639186bb0e669c7"
-  integrity sha512-yeR90RP2WzZzCxxnQPlh2uFzyfFLsfXu8ROh53jGDPXVqj71uNDMmvi/YKQkd9ofiVoO4OYb1snbowO49tCEMg==
+redux-observable@^2.0.0-alpha.0:
+  version "2.0.0-alpha.0"
+  resolved "https://registry.yarnpkg.com/redux-observable/-/redux-observable-2.0.0-alpha.0.tgz#e2fbb9da1db722a581c861976958c3b5d58f49cd"
+  integrity sha512-w0RsVGprIFiYi1AhFCOATiv3ld2AtuobvbcVsLvX19p8eAwLowWl2OrKYcCq/QEeEpmSHTXutXfVfcBnzaWmdw==
 
 redux@^4.0.0, redux@^4.0.1:
   version "4.0.5"
@@ -7186,17 +7241,17 @@ run-async@^2.2.0:
   dependencies:
     is-promise "^2.1.0"
 
-rx-jupyter@^5.5.2:
-  version "5.5.2"
-  resolved "https://registry.yarnpkg.com/rx-jupyter/-/rx-jupyter-5.5.2.tgz#5156c789bebd521f80cda6c1ab9a9bef0a7d8891"
-  integrity sha512-gjC+0RRC53lldvUAVDdi1mMR4uXbfL0Yexyme1mw35yLdMFOrlA8KaUO+YNILzwUWP1ywtBVNzfftRp1t00DRw==
+rx-jupyter@^5.5.14:
+  version "5.5.14"
+  resolved "https://registry.yarnpkg.com/rx-jupyter/-/rx-jupyter-5.5.14.tgz#1e77db20a305412f3f4ae3fbdef1160b5c15983f"
+  integrity sha512-7400H9yK1U7X8KoJRrFrptEPDO77ilwntZt7ZN8TdWnaOk0noT/7MwPo09ygC2WgA06t5KAGDFvZgHTjWACtWQ==
   dependencies:
-    "@nteract/commutable" "^7.2.6"
-    "@nteract/messaging" "^7.0.0"
+    "@nteract/commutable" "^7.3.4"
+    "@nteract/messaging" "^7.0.12"
     "@types/ungap__url-search-params" "^0.1.0"
-    "@ungap/url-search-params" "^0.1.2"
+    "@ungap/url-search-params" "^0.2.0"
     js-cookie "^2.2.0"
-    rxjs "^6.3.3"
+    rxjs "^6.6.0"
     url-join "^4.0.0"
 
 rx-lite-aggregates@^4.0.8:
@@ -7215,6 +7270,13 @@ rxjs@^6.3.3:
   version "6.5.4"
   resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-6.5.4.tgz#e0777fe0d184cec7872df147f303572d414e211c"
   integrity sha512-naMQXcgEo3csAEGvw/NydRA0fuS2nDZJiw1YUWFKU7aPPAPGZEsD4Iimit96qwCieH6y614MCLYwdkrWx7z/7Q==
+  dependencies:
+    tslib "^1.9.0"
+
+rxjs@^6.6.0:
+  version "6.6.3"
+  resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-6.6.3.tgz#8ca84635c4daa900c0d3967a6ee7ac60271ee552"
+  integrity sha512-trsQc+xYYXZ3urjOiJOuCOa5N3jAZ3eiSpQB5hIT8zGlL2QfnHLJ2r7GMkBGuIausdJN1OneaI6gQlsqNHHmZQ==
   dependencies:
     tslib "^1.9.0"
 
