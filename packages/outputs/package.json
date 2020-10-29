@@ -24,7 +24,7 @@
     "@types/react-json-tree": "0.6.11",
     "@types/react-test-renderer": "16.9.2",
     "@types/styled-components": "5.0.1",
-    "react-test-renderer": "16.13.1",
+    "react-test-renderer": "16.14.0",
     "styled-components": "4.4.1"
   },
   "peerDependencies": {
