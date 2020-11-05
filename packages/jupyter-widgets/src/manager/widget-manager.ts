@@ -16,7 +16,7 @@ import {
 } from "@nteract/core";
 import { JupyterMessage } from "@nteract/messaging";
 import { ManagerActions } from "../manager/index";
-import { initRequireDeps, requireLoader } from "./widgetLoader";
+import { initRequireDeps, overrideCDNBaseURL, requireLoader } from "./widgetLoader";
 
 interface IDomWidgetModel extends DOMWidgetModel {
   _model_name: string;
@@ -42,18 +42,23 @@ export class WidgetManager extends base.ManagerBase<DOMWidgetView> {
     | null;
   actions: ManagerActions["actions"];
   widgetsBeingCreated: { [model_id: string]: Promise<WidgetModel> };
+  customWidgetLoader?: (mName: string, mVer: string, sucCB: any, errCB: any) => any;
 
   constructor(
     kernel: any,
     stateModelById: (id: string) => any,
-    actions: ManagerActions["actions"]
+    actions: ManagerActions["actions"],
+    customWidgetLoader?: (mName: string, mVer: string, sucCB: any, errCB: any) => any
   ) {
     super();
     this.kernel = kernel;
     this.stateModelById = stateModelById;
     this.actions = actions;
     this.widgetsBeingCreated = {};
-    initRequireDeps();
+    this.customWidgetLoader = customWidgetLoader;
+    // Setup for supporting 3rd party widgets
+    initRequireDeps(); // define jupyter-widgets base package for requirejs
+    overrideCDNBaseURL(); // Override default CDN URL for fetching widgets
   }
 
   update(
@@ -70,13 +75,14 @@ export class WidgetManager extends base.ManagerBase<DOMWidgetView> {
    * Load a class and return a promise to the loaded object.
    */
   loadClass(className: string, moduleName: string, moduleVersion: string): any {
+    const cwLoader = this.customWidgetLoader ? this.customWidgetLoader : requireLoader;
     return new Promise(function(resolve, reject) {
       if (moduleName === "@jupyter-widgets/controls") {
         resolve(controls);
       } else if (moduleName === "@jupyter-widgets/base") {
         resolve(base);
       } else {
-        requireLoader(moduleName, moduleVersion, resolve, reject);
+        cwLoader(moduleName, moduleVersion, resolve, reject);
       }
     }).then(function(module: any) {
       if (module[className]) {

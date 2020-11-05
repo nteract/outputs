@@ -25,9 +25,9 @@ function moduleNameToCDNUrl(moduleName: string, moduleVersion: string): string {
     fileName = moduleName.substr(index + 1);
     packageName = moduleName.substr(0, index);
   }
-  let moduleNameString = moduleName;
+  let moduleNameString = packageName;
   if(moduleVersion){
-    moduleNameString = `${moduleName}@${moduleVersion}`;
+    moduleNameString = `${packageName}@${moduleVersion}`;
   }
   return `${cdn}${moduleNameString}/dist/${fileName}`;
 }
@@ -43,7 +43,14 @@ export function initRequireDeps(){
   const define = (window as any).define || function () {};
   define('@jupyter-widgets/controls', () => controls);
   define('@jupyter-widgets/base', () => base);
+}
 
+/**
+ * Overrides the default CDN base URL by querying the DOM for script tags
+ * We follow the same pattern as defined in HTML manager class of ipywidgets
+ * https://github.com/jupyter-widgets/ipywidgets/blob/master/packages/html-manager/src/libembed-amd.ts
+ */
+export function overrideCDNBaseURL(){
   // find the data-cdn for any script tag, assuming it is only used for embed-amd.js
   const scripts = document.getElementsByTagName('script');
   Array.prototype.forEach.call(scripts, (script: HTMLScriptElement) => {
@@ -72,7 +79,6 @@ export function requireLoader(moduleName: string, moduleVersion: string, success
   }
   const conf: { paths: { [key: string]: string } } = { paths: {} };
   const moduleCDN = moduleNameToCDNUrl(moduleName, moduleVersion);
-  console.log("module CDN Url "+moduleCDN);
   conf.paths[moduleName] = moduleCDN;
   require.config(conf);
   return require([`${moduleCDN}`], successCB, errorCB);

@@ -37,6 +37,7 @@ interface OwnProps {
   model_id: string;
   id: CellId;
   contentRef: ContentRef;
+  customWidgetLoader?: (mName: string, mVer: string, sucCB: any, errCB: any) => any;
 }
 
 type Props = ConnectedProps & OwnProps & ManagerActions;
@@ -68,7 +69,8 @@ class Manager extends React.Component<Props> {
       Manager.manager = new WidgetManager(
         this.props.kernel,
         this.props.modelById,
-        this.props.actions
+        this.props.actions,
+        this.props.customWidgetLoader
       );
     } else {
       Manager.manager.update(
