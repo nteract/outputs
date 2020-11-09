@@ -20,7 +20,7 @@ const mockRequireJS = jest.fn((modules, ready, errCB) => {
   } 
 });
 
-// Callbak bindind
+// Callback binding
 const mockSuccessCB = jest.fn();
 const mockErrorCB = jest.fn();
 (window as any).requirejs = mockRequireJS;

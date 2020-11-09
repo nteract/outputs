@@ -92,6 +92,8 @@ export class WidgetManager extends base.ManagerBase<DOMWidgetView> {
           `Class ${className} not found in module ${moduleName}@${moduleVersion}`
         );
       }
+    }).catch(function(err: Error) {
+        console.warn(err.message);
     });
   }
 
