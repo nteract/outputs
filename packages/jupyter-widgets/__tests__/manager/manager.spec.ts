@@ -22,6 +22,8 @@ const mockManagerActions: ManagerActions["actions"] = {
   promptInputRequest: jest.fn()
 };
 
+// Default modelById stub
+const mockModelById = (id: string) => undefined;
 
 describe("WidgetManager", () => {
   describe("loadClass", () => {
@@ -33,8 +35,7 @@ describe("WidgetManager", () => {
     });
 
     it("returns a class if it exists", () => {
-      const modelById = (id: string) => undefined;
-      const manager = new WidgetManager(null, modelById, mockManagerActions);
+      const manager = new WidgetManager(null, mockModelById, mockManagerActions);
       const view = manager.loadClass(
         "IntSliderView",
         "@jupyter-widgets/controls",
@@ -44,8 +45,7 @@ describe("WidgetManager", () => {
     });
 
     it("Returns a valid module class successfully from CDN for custom widgets", () => {
-      const modelById = (id: string) => undefined;
-      const manager = new WidgetManager(null, modelById, mockManagerActions);
+      const manager = new WidgetManager(null, mockModelById, mockManagerActions);
       const requireLoaderSpy = jest.spyOn(customWidgetLoader, "requireLoader");
 
       return manager.loadClass(
@@ -66,8 +66,7 @@ describe("WidgetManager", () => {
     });
 
     it("Returns an error if the class does not exist on the module", () => {
-      const modelById = (id: string) => undefined;
-      const manager = new WidgetManager(null, modelById, mockManagerActions);
+      const manager = new WidgetManager(null, mockModelById, mockManagerActions);
       const requireLoaderSpy = jest.spyOn(customWidgetLoader, "requireLoader");
 
       return manager.loadClass(
@@ -83,8 +82,7 @@ describe("WidgetManager", () => {
 
   describe("create_view", () => {
     it("returns a widget mounted on the provided element", async () => {
-      const modelById = (id: string) => undefined;
-      const manager = new WidgetManager(null, modelById, mockManagerActions);
+      const manager = new WidgetManager(null, mockModelById, mockManagerActions);
       const model = {
         _dom_classes: [],
         _model_module: "@jupyter-widgets/controls",
@@ -184,11 +182,10 @@ describe("WidgetManager", () => {
     });
   });
   it("can update class properties via method", () => {
-    const modelById = (id: string) => undefined;
-    const manager = new WidgetManager(null, modelById, mockManagerActions);
+    const manager = new WidgetManager(null, mockModelById, mockManagerActions);
     expect(manager.kernel).toBeNull();
     const newKernel = { channels: { next: jest.fn() } };
-    manager.update(newKernel, modelById, mockManagerActions);
+    manager.update(newKernel, mockModelById, mockManagerActions);
     expect(manager.kernel).toBe(newKernel);
   });
 });

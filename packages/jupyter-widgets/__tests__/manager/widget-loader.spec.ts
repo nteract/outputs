@@ -12,7 +12,7 @@ const invalidModule = {
 };
 // Mock implementation of the core require API
 const mockRequireJS = jest.fn((modules, ready, errCB) => {
-  if(modules.length > 0 && modules[0] == invalidModule.url){
+  if(modules.length > 0 && modules[0] === invalidModule.url){
     errCB(new Error('Whoops!'));
   }
   else {
