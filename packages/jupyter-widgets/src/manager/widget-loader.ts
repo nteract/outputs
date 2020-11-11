@@ -43,10 +43,11 @@ function requirePromise(pkg: string | string[]): Promise<any> {
   return new Promise((resolve, reject) => {
     const require = (window as any).requirejs;
     if (require === undefined) {
-        reject('Requirejs is needed, please ensure it is loaded on the page.');
-    } else {
-        // tslint:disable-next-line: non-literal-require
-        require(pkg, resolve, reject);
+      reject('Requirejs is needed, please ensure it is loaded on the page.');
+    }
+    else {
+      // tslint:disable-next-line: non-literal-require
+      require(pkg, resolve, reject);
     }
   });
 };
