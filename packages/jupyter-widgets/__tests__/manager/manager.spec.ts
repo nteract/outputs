@@ -3,7 +3,7 @@ import { Map } from "immutable";
 
 import { ManagerActions } from "../../src/manager/index";
 import { WidgetManager } from "../../src/manager/widget-manager";
-import * as customWidgetLoader from "../../src/manager/widgetLoader";
+import * as customWidgetLoader from "../../src/manager/widget-loader";
 
 // A mock valid module representing a custom widget
 const mockFooModule = {

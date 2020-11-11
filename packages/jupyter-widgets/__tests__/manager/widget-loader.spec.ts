@@ -1,4 +1,4 @@
-import { requireLoader } from "../../src/manager/widgetLoader";
+import { requireLoader } from "../../src/manager/widget-loader";
 
 // A mock valid module representing a custom widget
 const mockModule = {

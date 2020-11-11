@@ -16,7 +16,7 @@ import {
 } from "@nteract/core";
 import { JupyterMessage } from "@nteract/messaging";
 import { ManagerActions } from "../manager/index";
-import { initRequireDeps, overrideCDNBaseURL, requireLoader } from "./widgetLoader";
+import { initRequireDeps, overrideCDNBaseURL, requireLoader } from "./widget-loader";
 
 interface IDomWidgetModel extends DOMWidgetModel {
   _model_name: string;
