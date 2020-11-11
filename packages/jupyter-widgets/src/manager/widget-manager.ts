@@ -16,7 +16,7 @@ import {
 } from "@nteract/core";
 import { JupyterMessage } from "@nteract/messaging";
 import { ManagerActions } from "../manager/index";
-import { initRequireDeps, overrideCDNBaseURL, requireLoader } from "./widget-loader";
+import * as widgetLoader from "./widget-loader";
 
 interface IDomWidgetModel extends DOMWidgetModel {
   _model_name: string;
@@ -42,13 +42,13 @@ export class WidgetManager extends base.ManagerBase<DOMWidgetView> {
     | null;
   actions: ManagerActions["actions"];
   widgetsBeingCreated: { [model_id: string]: Promise<WidgetModel> };
-  customWidgetLoader?: (mName: string, mVer: string, sucCB: any, errCB: any) => any;
+  customWidgetLoader?: (moduleName: string, moduleVersion: string) => Promise<any>;
 
   constructor(
     kernel: any,
     stateModelById: (id: string) => any,
     actions: ManagerActions["actions"],
-    customWidgetLoader?: (mName: string, mVer: string, sucCB: any, errCB: any) => any
+    customWidgetLoader?: (moduleName: string, moduleVersion: string) => Promise<any>
   ) {
     super();
     this.kernel = kernel;
@@ -57,8 +57,8 @@ export class WidgetManager extends base.ManagerBase<DOMWidgetView> {
     this.widgetsBeingCreated = {};
     this.customWidgetLoader = customWidgetLoader;
     // Setup for supporting 3rd party widgets
-    initRequireDeps(); // define jupyter-widgets base package for requirejs
-    overrideCDNBaseURL(); // Override default CDN URL for fetching widgets
+    widgetLoader.initRequireDeps(); // define jupyter-widgets base package for requirejs
+    widgetLoader.overrideCDNBaseURL(); // Override default CDN URL for fetching widgets
   }
 
   update(
@@ -74,17 +74,19 @@ export class WidgetManager extends base.ManagerBase<DOMWidgetView> {
   /**
    * Load a class and return a promise to the loaded object.
    */
-  loadClass(className: string, moduleName: string, moduleVersion: string): any {
-    const cwLoader = this.customWidgetLoader ? this.customWidgetLoader : requireLoader;
-    return new Promise(function(resolve, reject) {
-      if (moduleName === "@jupyter-widgets/controls") {
-        resolve(controls);
-      } else if (moduleName === "@jupyter-widgets/base") {
-        resolve(base);
-      } else {
-        cwLoader(moduleName, moduleVersion, resolve, reject);
-      }
-    }).then(function(module: any) {
+  loadClass(className: string, moduleName: string, moduleVersion: string): Promise<any> {
+    const customWidgetLoader = this.customWidgetLoader ?? widgetLoader.requireLoader;
+
+    let widgetPromise: Promise<any>;
+    if (moduleName === "@jupyter-widgets/controls") {
+      widgetPromise = Promise.resolve(controls);
+    } else if (moduleName === "@jupyter-widgets/base") {
+      widgetPromise = Promise.resolve(base);
+    } else {
+      widgetPromise = customWidgetLoader(moduleName, moduleVersion);
+    }
+
+    return widgetPromise.then(function(module: any) {
       if (module[className]) {
         return module[className];
       } else {

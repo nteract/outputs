@@ -13,7 +13,7 @@ const invalidModule = {
 // Mock implementation of the core require API
 const mockRequireJS = jest.fn((modules, ready, errCB) => {
   if(modules.length > 0 && modules[0] === invalidModule.url){
-    errCB(new Error('Whoops!'));
+    errCB(new Error("Whoops!"));
   }
   else {
     ready(mockModule);
@@ -21,8 +21,6 @@ const mockRequireJS = jest.fn((modules, ready, errCB) => {
 });
 
 // Callback binding
-const mockSuccessCB = jest.fn();
-const mockErrorCB = jest.fn();
 (window as any).requirejs = mockRequireJS;
 (window as any).requirejs.config  = jest.fn();
 
@@ -34,32 +32,32 @@ describe("requireLoader", () => {
     jest.clearAllMocks();
   });
   it("Returns a module if linked to a valid CDN URL", () => {
-    requireLoader("foo", "1.0.0", mockSuccessCB, mockErrorCB);
-    expect(mockRequireJS).toHaveBeenCalledTimes(1);
-    
-    const moduleURLs = mockRequireJS.mock.calls[0][0];
-    expect(moduleURLs).not.toBe(null);
-    expect(moduleURLs.length).toBe(1);
-    expect(moduleURLs[0]).toBe("https://unpkg.com/foo@1.0.0/dist/index.js");
-    expect(mockSuccessCB).toHaveBeenCalledWith(mockModule);
+    return requireLoader("foo", "1.0.0").then(mod => {
+      expect(mockRequireJS).toHaveBeenCalledTimes(1);
+      const moduleURLs = mockRequireJS.mock.calls[0][0];
+      expect(moduleURLs).not.toBe(null);
+      expect(moduleURLs.length).toBe(1);
+      expect(moduleURLs[0]).toBe("https://unpkg.com/foo@1.0.0/dist/index.js");
+      expect(mod).toEqual(mockModule);
+    });
   });
 
   it("Returns a module even when module version is missing", () => {
-    requireLoader("foo", undefined, mockSuccessCB, mockErrorCB);
-    expect(mockRequireJS).toHaveBeenCalledTimes(1);
-    
-    const moduleURLs = mockRequireJS.mock.calls[0][0];
-    expect(moduleURLs).not.toBe(null);
-    expect(moduleURLs.length).toBe(1);
-    expect(moduleURLs[0]).toBe("https://unpkg.com/foo/dist/index.js");
-    expect(mockSuccessCB).toHaveBeenCalledWith(mockModule);
+    return requireLoader("foo", undefined).then(mod => {
+      expect(mockRequireJS).toHaveBeenCalledTimes(1);
+      const moduleURLs = mockRequireJS.mock.calls[0][0];
+      expect(moduleURLs).not.toBe(null);
+      expect(moduleURLs.length).toBe(1);
+      expect(moduleURLs[0]).toBe("https://unpkg.com/foo/dist/index.js");
+      expect(mod).toEqual(mockModule);
+    });
   });
 
   it("Calls the error callback if an error is encountered during the module loading", () => {   
     const {name, version} = invalidModule;
-    requireLoader(name, version, mockSuccessCB, mockErrorCB);
-    expect(mockRequireJS).toHaveBeenCalledTimes(1);
-    expect(mockSuccessCB).toBeCalledTimes(0);
-    expect(mockErrorCB).toBeCalledTimes(1);
+    return requireLoader(name, version).catch((error: Error) => {
+      expect(mockRequireJS).toHaveBeenCalledTimes(1);
+      expect(error.message).toBe("Whoops!");
+    });
   });
 });

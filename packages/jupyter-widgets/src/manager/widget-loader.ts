@@ -1,3 +1,8 @@
+/**
+ * Several functions in this file are based off the html-manager in jupyter-widgets project -
+ * https://github.com/jupyter-widgets/ipywidgets/blob/master/packages/html-manager/src/libembed-amd.ts
+ */
+
 import * as base from "@jupyter-widgets/base";
 import * as controls from "@jupyter-widgets/controls";
 
@@ -25,12 +30,26 @@ function moduleNameToCDNUrl(moduleName: string, moduleVersion: string): string {
     fileName = moduleName.substr(index + 1);
     packageName = moduleName.substr(0, index);
   }
-  let moduleNameString = packageName;
-  if(moduleVersion){
-    moduleNameString = `${packageName}@${moduleVersion}`;
-  }
+  const moduleNameString = moduleVersion ? `${packageName}@${moduleVersion}` : packageName;
   return `${cdn}/${moduleNameString}/dist/${fileName}`;
 }
+
+/**
+ * Load a package using requirejs and return a promise
+ *
+ * @param pkg Package name or names to load
+ */
+function requirePromise(pkg: string | string[]): Promise<any> {
+  return new Promise((resolve, reject) => {
+    const require = (window as any).requirejs;
+    if (require === undefined) {
+        reject('Requirejs is needed, please ensure it is loaded on the page.');
+    } else {
+        // tslint:disable-next-line: non-literal-require
+        require(pkg, resolve, reject);
+    }
+  });
+};
 
 /**
  * Initialize dependencies that need to be preconfigured for requireJS module loading
@@ -47,8 +66,9 @@ export function initRequireDeps(){
 
 /**
  * Overrides the default CDN base URL by querying the DOM for script tags
- * We follow the same pattern as defined in HTML manager class of ipywidgets
- * https://github.com/jupyter-widgets/ipywidgets/blob/master/packages/html-manager/src/libembed-amd.ts
+ * By default, the CDN service used is unpkg.com. However, this default can be
+ * overriden by specifying another URL via the HTML attribute
+ * "data-jupyter-widgets-cdn" on a script tag of the page.
  */
 export function overrideCDNBaseURL(){
   // find the data-cdn for any script tag, assuming it is only used for embed-amd.js
@@ -74,16 +94,16 @@ export function overrideCDNBaseURL(){
  *
  * The semver range is only used with the CDN.
  */
-export function requireLoader(moduleName: string, moduleVersion: string, successCB: (value?: unknown) => void, errorCB: (reason ?: any) => void): any {
+export function requireLoader(moduleName: string, moduleVersion: string): Promise<any> {
   const require = (window as any).requirejs;
   if (require === undefined) {
-    return errorCB(new Error("Requirejs is needed, please ensure it is loaded on the page."));
+    return Promise.reject(new Error("Requirejs is needed, please ensure it is loaded on the page."));
   }
-  else{
+  else {
     const conf: { paths: { [key: string]: string } } = { paths: {} };
     const moduleCDN = moduleNameToCDNUrl(moduleName, moduleVersion);
     conf.paths[moduleName] = moduleCDN;
     require.config(conf);
-    return require([`${moduleCDN}`], successCB, errorCB);
+    return requirePromise([moduleCDN]);
   }
 }

@@ -30,7 +30,7 @@ interface Props {
     | null;
   id: CellId;
   contentRef: ContentRef;
-  customWidgetLoader?: (mName: string, mVer: string, sucCB: any, errCB: any) => any;
+  customWidgetLoader?: (moduleName: string, moduleVersion: string) => Promise<any>;
 }
 
 interface State {

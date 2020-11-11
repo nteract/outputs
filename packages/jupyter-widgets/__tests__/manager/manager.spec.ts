@@ -57,7 +57,7 @@ describe("WidgetManager", () => {
         // Get the second arg to Monaco.editor.create call
         const mockLoaderArgs = requireLoaderSpy.mock.calls[0];
         expect(mockLoaderArgs).not.toBe(null);
-        expect(mockLoaderArgs.length).toBe(4);
+        expect(mockLoaderArgs.length).toBe(2);
         expect(mockLoaderArgs[0]).toBe("fooModule");
         expect(mockLoaderArgs[1]).toBe("1.1.0");
         expect(view).not.toBe(null);
