@@ -54,7 +54,6 @@ function requirePromise(pkg: string | string[]): Promise<any> {
 /**
  * Initialize dependencies that need to be preconfigured for requireJS module loading
  * Here, we define the jupyter-base, controls package that most 3rd party widgets depend on
- * We also override the cdn end point (if applicable)
  */
 export function initRequireDeps(){
   // Export the following for `requirejs`.
@@ -71,7 +70,7 @@ export function initRequireDeps(){
  * "data-jupyter-widgets-cdn" on a script tag of the page.
  */
 export function overrideCDNBaseURL(){
-  // find the data-cdn for any script tag, assuming it is only used for embed-amd.js
+  // find the data-cdn for any script tag
   const scripts = document.getElementsByTagName("script");
   Array.prototype.forEach.call(scripts, (script: HTMLScriptElement) => {
     cdn = script.getAttribute("data-jupyter-widgets-cdn") || cdn;
@@ -81,12 +80,10 @@ export function overrideCDNBaseURL(){
 }
 
 /**
- * Load an amd module locally and fall back to specified CDN if unavailable.
+ * Load an amd module from a specified CDN
  *
- * @param moduleName The name of the module to load..
+ * @param moduleName The name of the module to load.
  * @param moduleVersion The semver range for the module, if loaded from a CDN.
- * @param succssCB Callback when the module is loaded successfully by requireJS
- * @param errorCB Called to hand off any errors encountered during module loading
  *
  * By default, the CDN service used is unpkg.com. However, this default can be
  * overriden by specifying another URL via the HTML attribute
