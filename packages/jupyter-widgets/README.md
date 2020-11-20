@@ -42,7 +42,7 @@ customWidgetLoader?: (moduleName: string, moduleVersion: string) => Promise<any>
 
 Since custom widgets are hosted on CDN, we set https://unkpg.com as our default CDN Base URL. The default base URL can be overriden by specifying another URL via the HTML attribute "data-jupyter-widgets-cdn" on any script tag of the page.
 
-For instance if your js bundle is loaded as `bundle.js` on your page and you wanted to set [jsdelivr](https://www.jsdelivr.com) as your default CDN url for custom widgets, you could do the following:
+For instance if your JavaScript bundle is loaded as `bundle.js` on your page and you wanted to set [jsdelivr](https://www.jsdelivr.com) as your default CDN url for custom widgets, you could do the following:
 ```html
 <script data-jupyter-widgets-cdn="https://cdn.jsdelivr.net/npm" src="bundle.js"></script>
 ```
