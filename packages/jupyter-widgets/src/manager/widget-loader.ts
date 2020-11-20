@@ -6,6 +6,7 @@
 import * as base from "@jupyter-widgets/base";
 import * as controls from "@jupyter-widgets/controls";
 
+const requireJSMissingErrorMessage = "Requirejs is needed, please ensure it is loaded on the page. Docs - https://requirejs.org/docs/api.html";
 let cdn = "https://unpkg.com";
 
 /**
@@ -43,7 +44,7 @@ function requirePromise(pkg: string | string[]): Promise<any> {
   return new Promise((resolve, reject) => {
     const require = (window as any).requirejs;
     if (require === undefined) {
-      reject('Requirejs is needed, please ensure it is loaded on the page.');
+      reject(requireJSMissingErrorMessage);
     }
     else {
       // tslint:disable-next-line: non-literal-require
@@ -95,7 +96,7 @@ export function overrideCDNBaseURL(){
 export function requireLoader(moduleName: string, moduleVersion: string): Promise<any> {
   const require = (window as any).requirejs;
   if (require === undefined) {
-    return Promise.reject(new Error("Requirejs is needed, please ensure it is loaded on the page."));
+    return Promise.reject(new Error(requireJSMissingErrorMessage));
   }
   else {
     const conf: { paths: { [key: string]: string } } = { paths: {} };
