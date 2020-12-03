@@ -205,13 +205,13 @@ export function request_state(kernel: any, comm_id: string): Promise<any> {
       .pipe(childOf(message))
       .subscribe((reply: any) => {
         // if we get a comm message back, it is the state we requested
-        if (reply.msg_type === "comm_msg") {
+        if (reply.header?.msg_type === "comm_msg") {
           replySubscription.unsubscribe();
           return resolve(reply);
         }
         // otherwise, if we havent gotten a comm message and it goes idle, it wasn't found
         else if (
-          reply.msg_type === "status" &&
+          reply.header?.msg_type === "status" &&
           reply.content.execution_state === "idle"
         ) {
           replySubscription.unsubscribe();

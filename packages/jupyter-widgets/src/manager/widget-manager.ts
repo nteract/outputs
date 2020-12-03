@@ -16,6 +16,7 @@ import {
 } from "@nteract/core";
 import { JupyterMessage } from "@nteract/messaging";
 import { ManagerActions } from "../manager/index";
+import * as widgetLoader from "./widget-loader";
 
 interface IDomWidgetModel extends DOMWidgetModel {
   _model_name: string;
@@ -41,17 +42,23 @@ export class WidgetManager extends base.ManagerBase<DOMWidgetView> {
     | null;
   actions: ManagerActions["actions"];
   widgetsBeingCreated: { [model_id: string]: Promise<WidgetModel> };
+  customWidgetLoader?: (moduleName: string, moduleVersion: string) => Promise<any>;
 
   constructor(
     kernel: any,
     stateModelById: (id: string) => any,
-    actions: ManagerActions["actions"]
+    actions: ManagerActions["actions"],
+    customWidgetLoader?: (moduleName: string, moduleVersion: string) => Promise<any>
   ) {
     super();
     this.kernel = kernel;
     this.stateModelById = stateModelById;
     this.actions = actions;
     this.widgetsBeingCreated = {};
+    this.customWidgetLoader = customWidgetLoader;
+    // Setup for supporting 3rd party widgets
+    widgetLoader.initRequireDeps(); // define jupyter-widgets base package for requirejs
+    widgetLoader.overrideCDNBaseURL(); // Override default CDN URL for fetching widgets
   }
 
   update(
@@ -67,18 +74,19 @@ export class WidgetManager extends base.ManagerBase<DOMWidgetView> {
   /**
    * Load a class and return a promise to the loaded object.
    */
-  loadClass(className: string, moduleName: string, moduleVersion: string): any {
-    return new Promise(function(resolve, reject) {
-      if (moduleName === "@jupyter-widgets/controls") {
-        resolve(controls);
-      } else if (moduleName === "@jupyter-widgets/base") {
-        resolve(base);
-      } else {
-        return Promise.reject(
-          `Module ${moduleName}@${moduleVersion} not found`
-        );
-      }
-    }).then(function(module: any) {
+  loadClass(className: string, moduleName: string, moduleVersion: string): Promise<any> {
+    const customWidgetLoader = this.customWidgetLoader ?? widgetLoader.requireLoader;
+
+    let widgetPromise: Promise<any>;
+    if (moduleName === "@jupyter-widgets/controls") {
+      widgetPromise = Promise.resolve(controls);
+    } else if (moduleName === "@jupyter-widgets/base") {
+      widgetPromise = Promise.resolve(base);
+    } else {
+      widgetPromise = customWidgetLoader(moduleName, moduleVersion);
+    }
+
+    return widgetPromise.then(function(module: any) {
       if (module[className]) {
         return module[className];
       } else {
@@ -86,6 +94,8 @@ export class WidgetManager extends base.ManagerBase<DOMWidgetView> {
           `Class ${className} not found in module ${moduleName}@${moduleVersion}`
         );
       }
+    }).catch(function(err: Error) {
+        console.warn(err.message);
     });
   }
 

@@ -30,6 +30,7 @@ interface Props {
     | null;
   id: CellId;
   contentRef: ContentRef;
+  customWidgetLoader?: (moduleName: string, moduleVersion: string) => Promise<any>;
 }
 
 interface State {
@@ -72,6 +73,7 @@ export class WidgetDisplay extends React.Component<Props, State> {
           contentRef={this.props.contentRef}
           modelById={this.props.modelById}
           kernel={this.props.kernel}
+          customWidgetLoader={this.props.customWidgetLoader}
         />
       );
     } else {

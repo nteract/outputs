@@ -30,7 +30,27 @@ export default class MyNotebookApp extends ReactComponent {
 
 ## Documentation
 
-We're working on adding more documentation for this component. Stay tuned by watching this repository!
+The `jupyter-widgets` package supports two types of widgets:
+- Standard widgets provided in the official [`jupyter-widgets/base`](https://www.npmjs.com/package/@jupyter-widgets/base) and [`jupyter-widgets/controls`](https://www.npmjs.com/package/@jupyter-widgets/controls) package
+- [Custom Widgets](https://ipywidgets.readthedocs.io/en/stable/examples/Widget%20Custom.html) or 3rd party widgets authored by the OSS community
+
+The `WidgetDisplay` component has an additional prop named `customWidgetLoader`  to provide custom loaders for fetching 3rd party widgets. A reference implementation for a custom loader which serves as the default for this package can be found in `widget-loader.ts`.
+
+```typescript
+customWidgetLoader?: (moduleName: string, moduleVersion: string) => Promise<any>;
+```
+
+### Custom Widgets
+
+Since custom widgets are hosted on CDN, we set https://unkpg.com as our default CDN Base URL. The default base URL can be overriden by specifying another URL via the HTML attribute "data-jupyter-widgets-cdn" on any script tag of the page.
+
+For instance if your JavaScript bundle is loaded as `bundle.js` on your page and you wanted to set [jsdelivr](https://www.jsdelivr.com) as your default CDN url for custom widgets, you could do the following:
+```html
+<script data-jupyter-widgets-cdn="https://cdn.jsdelivr.net/npm" src="bundle.js"></script>
+```
+Note: Custom widgets are fetched and loaded using the [requireJS](https://requirejs.org/) library. Please ensure that the library is loaded on your page and that the `require` and `define` APIs are available on the `window` object. We attempt to detect the presence of these APIs and emit a warning that custom widgets won't work when `requirejs` is missing.
+
+
 
 ## Support
 
