@@ -4370,9 +4370,9 @@ inherits@2, inherits@^2.0.0, inherits@^2.0.1, inherits@^2.0.3, inherits@~2.0.3:
   integrity sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==
 
 ini@^1.3.2, ini@~1.3.0:
-  version "1.3.5"
-  resolved "https://registry.yarnpkg.com/ini/-/ini-1.3.5.tgz#eee25f56db1c9ec6085e0c22778083f596abf927"
-  integrity sha512-RZY5huIKCMRWDUqZlEi72f/lmXKMvuszcMBduliQ3nnWbx9X/ZBQO7DijMEYS9EhHBb2qacRUMtC7svLwe0lcw==
+  version "1.3.8"
+  resolved "https://registry.yarnpkg.com/ini/-/ini-1.3.8.tgz#a29da425b48806f34767a4efce397269af28432c"
+  integrity sha512-JV/yugV2uzW5iMRSiZAyDtQd+nxtUnjeLt0acNdw98kKLrvuRVyB80tsREOE7yvGVgalhZ6RNXCmEHkUKBKxew==
 
 inquirer@^3.2.2:
   version "3.3.0"
@@ -6450,10 +6450,10 @@ pkg-up@^3.1.0:
   dependencies:
     find-up "^3.0.0"
 
-plotly.js-dist@^1.57.1:
-  version "1.57.1"
-  resolved "https://registry.yarnpkg.com/plotly.js-dist/-/plotly.js-dist-1.57.1.tgz#5d9fa751af6416255975b65af565344a1a3beac5"
-  integrity sha512-tOOFxNc6PvdDkOUgWCSYc+CcxQULTpaGTROxrtmmF8NuZghcT3EInsToEzhPH3PcGM6bu61fKo73ZiFqxwYtlg==
+plotly.js-dist@^1.58.2:
+  version "1.58.2"
+  resolved "https://registry.yarnpkg.com/plotly.js-dist/-/plotly.js-dist-1.58.2.tgz#e4d62dfe562ac93023e90fc7dbb978f942bbaf2d"
+  integrity sha512-IJG1Lubiv6wwOM+fIXD5FaufAMbMvP1J7ppiwfQkutXx6AGeRbS8dIBqcrJS5Lmh3/NOWIzjeQD7XkraVW+Trg==
 
 pn@^1.1.0:
   version "1.1.0"
