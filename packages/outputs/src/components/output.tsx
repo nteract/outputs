@@ -34,7 +34,7 @@ interface ReactErrorInfo {
 }
 
 const ErrorFallbackDiv = styled.div`
-  backgroundcolor: ghostwhite;
+  background-color: ghostwhite;
   color: black;
   font-weight: 600;
   display: block;
