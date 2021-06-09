@@ -8,7 +8,8 @@
   },
   "scripts": {
     "build": "tsc -b packages/",
-    "test": "jest"
+    "test": "jest",
+    "release": "lerna run release"
   },
   "devDependencies": {
     "@babel/plugin-transform-runtime": "7.12.1",
@@ -26,10 +27,23 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-redux": "6.0.1",
+    "semantic-release": "^17.4.3",
+    "semantic-release-monorepo": "^7.0.5",
     "ts-jest": "25.2.1",
     "typescript": "3.8.3"
   },
   "workspaces": [
     "packages/**"
-  ]
+  ],
+  "release": {
+    "plugins": [
+      [
+        "@semantic-release/commit-analyzer",
+        {
+          "preset": "conventionalcommits"
+        }
+      ],
+      "@semantic-release/npm"
+    ]
+  }
 }

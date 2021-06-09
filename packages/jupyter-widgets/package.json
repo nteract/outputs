@@ -6,7 +6,8 @@
   "types": "lib/index.d.ts",
   "nteractDesktop": "src/index.ts",
   "scripts": {
-    "test": "jest ."
+    "test": "jest .",
+    "release": "semantic-release -e semantic-release-monorepo"
   },
   "repository": "https://github.com/nteract/nteract/tree/master/packages/transforms",
   "keywords": [
@@ -37,5 +38,16 @@
   },
   "devDependencies": {
     "@nteract/commutable": "7.3.4"
+  },
+  "release": {
+    "plugins": [
+      [
+        "@semantic-release/commit-analyzer",
+        {
+          "preset": "conventionalcommits"
+        }
+      ],
+      "@semantic-release/npm"
+    ]
   }
 }

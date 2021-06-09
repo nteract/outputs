@@ -5,7 +5,9 @@
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "nteractDesktop": "src/index.tsx",
-  "scripts": {},
+  "scripts": {
+    "release": "semantic-release -e semantic-release-monorepo"
+  },
   "repository": "https://github.com/nteract/nteract/tree/master/packages/transform-vdom",
   "author": "",
   "publishConfig": {
@@ -20,5 +22,16 @@
   "license": "BSD-3-Clause",
   "devDependencies": {
     "@types/lodash.clonedeep": "4.5.6"
+  },
+  "release": {
+    "plugins": [
+      [
+        "@semantic-release/commit-analyzer",
+        {
+          "preset": "conventionalcommits"
+        }
+      ],
+      "@semantic-release/npm"
+    ]
   }
 }

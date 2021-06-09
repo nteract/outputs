@@ -5,7 +5,9 @@
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "nteractDesktop": "src/index.tsx",
-  "scripts": {},
+  "scripts": {
+    "release": "semantic-release -e semantic-release-monorepo"
+  },
   "repository": "https://github.com/nteract/nteract/tree/master/packages/transform-plotly",
   "author": "",
   "publishConfig": {
@@ -23,5 +25,16 @@
     "@types/lodash.clonedeep": "4.5.6",
     "lodash.clonedeep": "4.5.0",
     "lodash.set": "4.3.2"
+  },
+  "release": {
+    "plugins": [
+      [
+        "@semantic-release/commit-analyzer",
+        {
+          "preset": "conventionalcommits"
+        }
+      ],
+      "@semantic-release/npm"
+    ]
   }
 }
