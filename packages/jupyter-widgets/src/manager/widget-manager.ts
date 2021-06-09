@@ -214,7 +214,7 @@ export class WidgetManager extends base.ManagerBase<DOMWidgetView> {
    * @param el Target element that the view will be rendered within
    */
   render_view(view: base.DOMWidgetView, el: HTMLElement): void {
-    pWidget.Widget.attach(view.pWidget, el);
+    pWidget.Widget.attach(view.pWidget as unknown as pWidget.Widget, el);
   }
 
   /**
