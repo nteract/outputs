@@ -12,7 +12,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "repository": "https://github.com/nteract/nteract/tree/master/packages/transform-vega",
   "dependencies": {
     "@nteract/any-vega": "^1.0.1",
     "@nteract/presentational-components": "^3.3.7"

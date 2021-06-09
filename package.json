@@ -4,7 +4,7 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/nteract/transforms.git"
+    "url": "https://github.com/nteract/outputs.git"
   },
   "scripts": {
     "build": "tsc -b packages/",

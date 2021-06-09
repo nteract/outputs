@@ -9,7 +9,6 @@
     "test": "jest .",
     "release": "semantic-release -e semantic-release-monorepo"
   },
-  "repository": "https://github.com/nteract/nteract/tree/master/packages/transforms",
   "keywords": [
     "nteract",
     "transforms",
