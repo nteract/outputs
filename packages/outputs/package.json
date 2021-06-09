@@ -8,7 +8,7 @@
   "scripts": {
     "build": "tsc -b",
     "test": "jest",
-    "release": "semantic-release -e semantic-release-monorepo",
+    "release": "semantic-release -e semantic-release-monorepo"
   },
   "dependencies": {
     "@nteract/markdown": "^4.5.2",
