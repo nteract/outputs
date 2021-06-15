@@ -1425,7 +1425,7 @@ exports[`LaTeX Should render LaTeX 1`] = `
       onError={[Function]}
       onLoad={null}
       options={Object {}}
-      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.8/MathJax.js?config=TeX-MML-AM_CHTML"
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML"
     >
       <MathJaxText
         onRender={null}
@@ -1450,7 +1450,7 @@ exports[`Markdown Should render markdown 1`] = `
         ]
       }
       className="markdown-body "
-      escapeHtml={false}
+      escapeHtml={true}
       parserOptions={Object {}}
       plugins={
         Array [
@@ -1513,19 +1513,7 @@ exports[`Plain Should render markdown 1`] = `
           key="0"
           style={Object {}}
         >
-          The
-           
-          text
-           
-          in
-           
-          Spain
-           
-          is
-           
-          mainly
-           
-          plain
+          The text in Spain is mainly plain
         </span>
       </code>
     </Ansi>
@@ -1548,21 +1536,15 @@ exports[`Plain should render urls as links 1`] = `
           key="0"
           style={Object {}}
         >
-          Let's
-           
-          go
-           
-          to
-           
+          Let's go to 
           <a
             href="https://google.com"
-            key="6"
+            key="0"
             target="_blank"
           >
             https://google.com
           </a>
-           
-          today!
+           today!
         </span>
       </code>
     </Ansi>
@@ -1587,23 +1569,17 @@ today!"
           key="0"
           style={Object {}}
         >
-          Let's
-           
-          go
-           
-          to
-          
+          Let's go to
 
           <a
             href="https://google.com"
-            key="6"
+            key="0"
             target="_blank"
           >
             https://google.com
           </a>
           
-
-          today!
+today!
         </span>
       </code>
     </Ansi>

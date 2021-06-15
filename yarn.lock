@@ -1787,10 +1787,10 @@
     rx-jupyter "^5.5.14"
     rxjs "^6.3.3"
 
-"@nteract/markdown@^4.5.2":
-  version "4.5.2"
-  resolved "https://registry.yarnpkg.com/@nteract/markdown/-/markdown-4.5.2.tgz#a1eaa58961a26219a1e1f7beaef42d41ef06e864"
-  integrity sha512-qf7kbNzYohwj0dKI0qDY8dOv4kubj6lN3KcM5Xaev433q+4iTSKIgtD6ffCC4Jryq3AqN957V1YsY9ZwBZ1GUQ==
+"@nteract/markdown@^4.6.1":
+  version "4.6.2"
+  resolved "https://registry.yarnpkg.com/@nteract/markdown/-/markdown-4.6.2.tgz#5e3dc44047f7af761b3fb8cf76f6d239e7bb65c3"
+  integrity sha512-WI+VvaiL9ihIkmPHCYSwziuMJcSUTKBi+hrf5V74jYYq1b5LWJyDa9O5B137KVEdgYwr0w4JiZHFm7wvEWXlZw==
   dependencies:
     "@nteract/mathjax" "^4.0.11"
     "@nteract/presentational-components" "^3.3.11"
@@ -1804,6 +1804,13 @@
     load-script "^1.0.0"
     react "^16.13.0"
     react-dom "^16.13.0"
+
+"@nteract/mathjax@^4.0.16":
+  version "4.0.16"
+  resolved "https://registry.yarnpkg.com/@nteract/mathjax/-/mathjax-4.0.16.tgz#1889a7e4ece011c2321434edb304f6d8d2b7b727"
+  integrity sha512-eth384tJmOF2oNnHc3iqNwqZdFdNPZmnboY66aE7QRJvxZsYSUj0oHvERn3nXxFuVjv866xWGRc5zU+T4tPIDQ==
+  dependencies:
+    load-script "^1.0.0"
 
 "@nteract/messaging@^7.0.0":
   version "7.0.0"
@@ -2667,10 +2674,10 @@ ansi-styles@^4.3.0:
   dependencies:
     color-convert "^2.0.1"
 
-ansi-to-react@^6.0.5:
-  version "6.0.5"
-  resolved "https://registry.yarnpkg.com/ansi-to-react/-/ansi-to-react-6.0.5.tgz#b41d4e91dbbf847a373368cfa517f337399aef9b"
-  integrity sha512-kVKsflDGTJP6CnKOrgt7YQGnCurcf4q0rapWTNmx5KcIvgz+wHqjUIkfNmLQcJM6ZeHD0epbSOz0QOLg7fbVmg==
+ansi-to-react@^6.1.5:
+  version "6.1.5"
+  resolved "https://registry.yarnpkg.com/ansi-to-react/-/ansi-to-react-6.1.5.tgz#00ca9e4f566b468f0aa6a213f34b752b3e7121a9"
+  integrity sha512-u7fkGMK+p6keOtgExruUDVmEnTBAWizlHJXzx9eJxw4rCVE6omzm0Gw4BQmB9oUPr0WriYf7Wyprms8uL8eL5Q==
   dependencies:
     anser "^1.4.1"
     escape-carriage "^1.3.0"

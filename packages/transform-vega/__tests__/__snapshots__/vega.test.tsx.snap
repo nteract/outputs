@@ -16,8 +16,8 @@ exports[`Vega3 renders the spec as SVG properly 1`] = `
     <svg
       class="marks"
       height="251"
-      viewBox="0 0 346 251"
-      width="346"
+      viewBox="0 0 334 251"
+      width="334"
     >
       <g
         transform="translate(43,11)"
@@ -2394,7 +2394,7 @@ exports[`Vega3 renders the spec as SVG properly 1`] = `
                 >
                   <path
                     class="background"
-                    d="M0,0h80v104h-80Z"
+                    d="M0,0h68v104h-68Z"
                     style="pointer-events: none; fill: none;"
                   />
                   <g>
@@ -2518,8 +2518,8 @@ exports[`Vega4 renders the spec as SVG properly 1`] = `
     <svg
       class="marks"
       height="251"
-      viewBox="0 0 345 251"
-      width="345"
+      viewBox="0 0 333 251"
+      width="333"
     >
       <g
         transform="translate(43,11)"
@@ -4896,7 +4896,7 @@ exports[`Vega4 renders the spec as SVG properly 1`] = `
                 >
                   <path
                     class="background"
-                    d="M0,0h79v106h-79Z"
+                    d="M0,0h67v106h-67Z"
                     style="pointer-events: none; fill: none;"
                   />
                   <g>
@@ -5119,8 +5119,8 @@ exports[`Vega5 renders the spec as SVG properly 1`] = `
     <svg
       class="marks"
       height="247"
-      viewBox="0 0 341 247"
-      width="341"
+      viewBox="0 0 329 247"
+      width="329"
     >
       <g
         transform="translate(40,10)"
@@ -7507,7 +7507,7 @@ exports[`Vega5 renders the spec as SVG properly 1`] = `
                 >
                   <path
                     class="background"
-                    d="M0,0h78v105h-78Z"
+                    d="M0,0h66v105h-66Z"
                     style="pointer-events: none; fill: none;"
                   />
                   <g>
