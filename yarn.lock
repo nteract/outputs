@@ -3499,9 +3499,9 @@ color-name@^1.0.0, color-name@~1.1.4:
   integrity sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA==
 
 color-string@^1.5.4:
-  version "1.5.4"
-  resolved "https://registry.yarnpkg.com/color-string/-/color-string-1.5.4.tgz#dd51cd25cfee953d138fe4002372cc3d0e504cb6"
-  integrity sha512-57yF5yt8Xa3czSEW1jfQDE79Idk0+AkN/4KWad6tbdxUmAs3MvjxlWSWD4deYytcRfoZ9nhKyFl1kj5tBvidbw==
+  version "1.5.5"
+  resolved "https://registry.yarnpkg.com/color-string/-/color-string-1.5.5.tgz#65474a8f0e7439625f3d27a6a19d89fc45223014"
+  integrity sha512-jgIoum0OfQfq9Whcfc2z/VhCNcmQjWbey6qBX0vqt7YICflUmBCh9E9CiQD5GSJ+Uehixm3NUwHVhqUAWRivZg==
   dependencies:
     color-name "^1.0.0"
     simple-swizzle "^0.2.2"
@@ -8380,10 +8380,10 @@ pkg-up@^2.0.0:
   dependencies:
     find-up "^2.1.0"
 
-plotly.js-dist@^1.58.4:
-  version "1.58.4"
-  resolved "https://registry.yarnpkg.com/plotly.js-dist/-/plotly.js-dist-1.58.4.tgz#d57b73d27af57a0d6cd2cf9428a001962889cf5b"
-  integrity sha512-oXCTRJFN8FBsHZSQPYoM3LuJQchPUrf6sOXFC0EFdvcr5lmJmLcAsW74jDy9PkRpm3PB+A+2oY1hsUMmk2eZbw==
+plotly.js-dist@^2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/plotly.js-dist/-/plotly.js-dist-2.2.1.tgz#d24a68bbf11bfc0084b9a92f631ec0b8ce68968c"
+  integrity sha512-xgsho2rx/XhrkqqqhycnsY0uBJa6R1YO+uEph4DgJpW8p/JLQZgBWQKtmc8Q6QXhoysQthjvTmP97H4PFTYSww==
 
 pn@^1.1.0:
   version "1.1.0"
