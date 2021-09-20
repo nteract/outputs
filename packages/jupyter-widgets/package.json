@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "@jupyter-widgets/base": "^4.0.0",
-    "@jupyter-widgets/controls": "^1.5.2",
+    "@jupyter-widgets/controls": "^3.0.0",
     "@nteract/core": "^15.0.0",
     "@nteract/messaging": "^7.0.0",
     "font-awesome": "^4.7.0",
