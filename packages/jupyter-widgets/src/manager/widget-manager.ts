@@ -1,7 +1,7 @@
 import { KernelMessage } from "@jupyterlab/services";
 import * as base from "@jupyter-widgets/base";
 import * as controls from "@jupyter-widgets/controls";
-import * as pWidget from "@phosphor/widgets";
+import * as pWidget from "@lumino/widgets";
 import {
   DOMWidgetView,
   WidgetModel,

@@ -9,7 +9,7 @@ import { WidgetManager } from "../manager/widget-manager";
 import "@jupyter-widgets/base/css/index.css";
 import "@jupyter-widgets/controls/css/labvariables.css";
 import "@jupyter-widgets/controls/css/materialcolors.css";
-import "@jupyter-widgets/controls/css/phosphor.css";
+import "@jupyter-widgets/controls/css/lumino.css";
 import "@jupyter-widgets/controls/css/widgets-base.css";
 import "@jupyter-widgets/controls/css/widgets.css";
 
