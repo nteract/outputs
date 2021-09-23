@@ -18,7 +18,6 @@ const mockRequireJS = jest.fn((modules, ready, errCB) => ready(mockFooModule));
 const mockManagerActions: ManagerActions["actions"] = {
   appendOutput: jest.fn(),
   clearOutput: jest.fn(),
-  updateCellStatus: jest.fn(),
   promptInputRequest: jest.fn()
 };
 
