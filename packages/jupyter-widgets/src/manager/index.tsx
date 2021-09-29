@@ -8,8 +8,7 @@ import {
   KernelNotStartedProps,
   LocalKernelProps,
   RemoteKernelProps,
-  ContentRef,
-  KernelStatus
+  ContentRef
 } from "@nteract/core";
 import { CellId } from "@nteract/commutable";
 import { WidgetModel } from "@jupyter-widgets/base";
@@ -27,7 +26,6 @@ export interface ManagerActions {
   actions: {
     appendOutput: (output: any) => void;
     clearOutput: () => void;
-    updateCellStatus: (status: KernelStatus) => void;
     promptInputRequest: (prompt: string, password: boolean) => void;
   };
 }
@@ -112,14 +110,6 @@ const mapDispatchToProps = (dispatch: any, props: OwnProps): ManagerActions => {
           actions.clearOutputs({
             id: props.id,
             contentRef: props.contentRef
-          })
-        ),
-      updateCellStatus: (status: KernelStatus) =>
-        dispatch(
-          actions.updateCellStatus({
-            id: props.id,
-            contentRef: props.contentRef,
-            status
           })
         ),
       promptInputRequest: (prompt: string, password: boolean) =>

@@ -197,8 +197,13 @@ export class WidgetManager extends base.ManagerBase<DOMWidgetView> {
             output_type: reply.header.msg_type
           }),
         clear_output: (reply: JupyterMessage) => this.actions.clearOutput(),
-        status: (reply: JupyterMessage) =>
-          this.actions.updateCellStatus(reply.content.execution_state)
+        status: (reply: JupyterMessage) => {
+          /**
+           * Currently, we don't do anything with status messages. Previously,
+           * we updated the cell status, but we removed it because it was confusing
+           * to users and had bugs related to widgets updating the wrong cell's status
+           */
+        }
       },
       input: (reply: JupyterMessage) =>
         this.actions.promptInputRequest(
