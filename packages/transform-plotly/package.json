@@ -3,6 +3,11 @@
   "version": "6.1.10",
   "description": "Plotly Transform",
   "main": "lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nteract/outputs.git",
+    "directory": "packages/transform-plotly"
+  },
   "types": "lib/index.d.ts",
   "nteractDesktop": "src/index.tsx",
   "scripts": {

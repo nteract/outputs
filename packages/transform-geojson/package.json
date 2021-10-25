@@ -3,6 +3,11 @@
   "version": "5.1.13",
   "description": "GeoJSON Transform",
   "main": "lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nteract/outputs.git",
+    "directory": "packages/transform-geojson"
+  },
   "types": "lib/index.d.ts",
   "nteractDesktop": "src/index.tsx",
   "scripts": {

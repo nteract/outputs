@@ -3,6 +3,11 @@
   "version": "4.0.15",
   "description": "VDOM Transform for jupyter outputs",
   "main": "lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nteract/outputs.git",
+    "directory": "packages/transform-vdom"
+  },
   "types": "lib/index.d.ts",
   "nteractDesktop": "src/index.tsx",
   "scripts": {
