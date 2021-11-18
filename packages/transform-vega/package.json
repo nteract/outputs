@@ -3,6 +3,11 @@
   "version": "7.0.10",
   "description": "Vega Transform",
   "main": "lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nteract/outputs.git",
+    "directory": "packages/transform-vega"
+  },
   "types": "lib/index.d.ts",
   "nteractDesktop": "src/index.tsx",
   "scripts": {

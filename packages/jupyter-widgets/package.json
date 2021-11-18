@@ -4,6 +4,11 @@
   "description": "Transform for rendering Jupyter-JS-Widgets in output areas.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nteract/outputs.git",
+    "directory": "packages/jupyter-widgets"
+  },
   "nteractDesktop": "src/index.ts",
   "scripts": {
     "test": "jest .",
