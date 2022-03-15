@@ -5,6 +5,8 @@ import * as React from "react";
 interface Props {
   output_type: "stream";
   output: ImmutableStreamOutput;
+  linkify?: boolean;
+  useClasses?: boolean;
 }
 
 export class StreamText extends React.PureComponent<Props> {
@@ -14,14 +16,14 @@ export class StreamText extends React.PureComponent<Props> {
   };
 
   render() {
-    const { output } = this.props;
+    const { output, linkify, useClasses } = this.props;
     if (!output) {
       return null;
     }
     const { text, name } = output;
 
     return (
-      <Ansi linkify className={`nteract-display-area-${name}`}>
+      <Ansi linkify={linkify ?? true} className={`nteract-display-area-${name}`} useClasses={useClasses}>
         {text}
       </Ansi>
     );

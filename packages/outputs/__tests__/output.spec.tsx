@@ -1,6 +1,6 @@
 import { mount, shallow } from "enzyme";
 import * as React from "react";
-
+import Ansi from "ansi-to-react";
 import { createImmutableOutput, ImmutableOutput } from "@nteract/commutable";
 
 import {
@@ -113,6 +113,46 @@ describe("Output", () => {
   });
 });
 
+describe("Output ansi options", () => {
+  it("stream data", () => {
+    const output = createImmutableOutput({
+      output_type: "stream",
+      name: "stdout",
+      text: "hey"
+    });
+
+    const component = mount(
+      <Output output={output}>
+        <StreamText linkify={false} useClasses={true} />
+      </Output>
+    );
+
+    expect(component.find("StreamText")).not.toBeNull();
+    expect(component.find(Ansi).prop("linkify")).toBe(false);
+    expect(component.find(Ansi).prop("useClasses")).toBe(true);
+  });
+
+  it("error data", () => {
+    const output = createImmutableOutput({
+      output_type: "error",
+      traceback: ["Yikes, Will is in the upsidedown again!"],
+      ename: "NameError",
+      evalue: "Yikes!"
+    });
+
+    const component = mount(
+      <Output output={output}>
+        <KernelOutputError linkify={true} useClasses={true} />
+      </Output>
+    );
+
+    expect(component.find("KernelOutputError")).not.toBeNull();
+    expect(component.find(Ansi).prop("linkify")).toBe(true);
+    expect(component.find(Ansi).prop("useClasses")).toBe(true);
+  });
+});
+
+
 describe("Full Outputs usage", () => {
   const testOutput = createImmutableOutput({
     output_type: "display_data",
@@ -219,4 +259,5 @@ describe("Output with an array of output_types", () => {
     expect(wrapperExecuteResult.find(Media.HTML).exists()).toEqual(true);
     expect(wrapperOtherOutput.html()).toEqual("");
   });
+  
 });

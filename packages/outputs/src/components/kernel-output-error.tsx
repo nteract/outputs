@@ -8,6 +8,8 @@ interface Props {
   className?: string;
   output: ImmutableErrorOutput;
   output_type: "error";
+  linkify?: boolean;
+  useClasses?: boolean;
 }
 
 const PlainKernelOutputError = (props: Partial<Props>) => {
@@ -33,7 +35,7 @@ const PlainKernelOutputError = (props: Partial<Props>) => {
   }
 
   return (
-    <Ansi className={props.className} linkify={false}>
+    <Ansi className={props.className} linkify={props.linkify ?? false} useClasses={props.useClasses ?? false }>
       {kernelOutputError.join("\n")}
     </Ansi>
   );
