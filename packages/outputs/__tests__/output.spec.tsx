@@ -135,9 +135,9 @@ describe("Output ansi options", () => {
   it("error data", () => {
     const output = createImmutableOutput({
       output_type: "error",
-      traceback: ["Yikes, Will is in the upsidedown again!"],
+      traceback: ["Zoinks, Will is in the upsidedown again!"],
       ename: "NameError",
-      evalue: "Yikes!"
+      evalue: "Zoinks!"
     });
 
     const component = mount(
