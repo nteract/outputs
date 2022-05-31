@@ -17,6 +17,8 @@ interface FigureLayout extends ObjectType {
 interface Figure extends ObjectType {
   data: object;
   layout: FigureLayout;
+  config: ObjectType | undefined;
+  frames: object[] | undefined;
 }
 
 declare class PlotlyHTMLElement extends HTMLDivElement {
@@ -52,7 +54,8 @@ export class PlotlyTransform extends React.Component<Props> {
     newPlot: (
       div: PlotlyHTMLElement | null | undefined,
       data: object,
-      layout: FigureLayout
+      layout?: FigureLayout,
+      config?: object
     ) => void;
     redraw: (div?: PlotlyHTMLElement) => void;
   };
@@ -61,7 +64,11 @@ export class PlotlyTransform extends React.Component<Props> {
     // Handle case of either string to be `JSON.parse`d or pure object
     const figure = this.getFigure();
     this.Plotly = require("plotly.js-dist");
-    this.Plotly.newPlot(this.plotDiv, figure.data, figure.layout);
+    if (figure.config || figure.frames) {
+      this.Plotly.newPlot(this.plotDiv, figure);
+    } else {
+      this.Plotly.newPlot(this.plotDiv, figure.data, figure.layout);
+    }
   }
 
   shouldComponentUpdate(nextProps: Props): boolean {
@@ -94,9 +101,9 @@ export class PlotlyTransform extends React.Component<Props> {
       return cloneDeep(figure) as Figure;
     }
 
-    const { data = {}, layout = {} } = figure as Figure;
+    const { data = {}, layout = {}, config = undefined, frames = undefined } = figure as Figure;
 
-    return { data, layout };
+    return { data, layout, config, frames };
   };
 
   render() {
