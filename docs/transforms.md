@@ -50,10 +50,10 @@ In the example above, we covered a simple transform that rendered HTML or plain-
 
 | Media Type                       | nteract Transform                                                                              |
 | -------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `application/geo+json`           | [transform-geojson](https://github.com/nteract/nteract/tree/master/packages/transform-geojson) |
-| `application/vnd.plotly.v1+json` | [transform-plotly](https://github.com/nteract/nteract/blob/master/packages/transform-plotly)   |
-| `application/vdom.v1+json`       | [transform-vdom](https://github.com/nteract/nteract/tree/master/packages/transform-vdom)       |
-| `application/vnd.vega.v2+json`   | [transform-vega](https://github.com/nteract/nteract/blob/master/packages/transform-vega)       |
+| `application/geo+json`           | [transform-geojson](https://github.com/nteract/outputs/tree/master/packages/transform-geojson) |
+| `application/vnd.plotly.v1+json` | [transform-plotly](https://github.com/nteract/outputs/tree/master/packages/transform-plotly)   |
+| `application/vdom.v1+json`       | [transform-vdom](https://github.com/nteract/outputs/tree/master/packages/transform-vdom)       |
+| `application/vnd.vega.v2+json`   | [transform-vega](https://github.com/nteract/outputs/tree/master/packages/transform-vega)       |
 
 Transforms are React components that can take a `display_data` object and return a view given the data associated with a specific media type.
 
